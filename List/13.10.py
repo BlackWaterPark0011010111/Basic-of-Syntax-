@@ -11,7 +11,7 @@ students = {
             'beer': 'pilsner',
             'wine': 'New zeeland'
     }  
-}
+} 
 print(students['drinks']['wine'])
 
 print(students['student1'][0])
