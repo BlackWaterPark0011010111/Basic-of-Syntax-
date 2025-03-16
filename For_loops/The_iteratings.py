@@ -10,12 +10,23 @@
 (в данном случае - строке).
 То же самое относится к любому типу 
 итерируемых."""
+
+"""Iteration tables, as the name suggests, are used 
+for one main purpose - iteration. 
+There are also a number of built-in 
+functions that require iterations as 
+arguments. 
+A list of strings can be iterated over to access 
+each of its values, and the len function can be used to 
+get the number of elements in the passed iterable 
+(in this case, a string).
+The same applies to any type of iterable."""
 from numpy import iterable
 
 
 iterables_list = [
      "string", "list", "set",
-     "кортеж", "словарь"
+     "tuple", "dictionary"
  ]
 for item in iterables_list:
  print(item, len(item))
@@ -28,17 +39,14 @@ dictionary 10"""
 
 
 """
-Словари - это особый случай, 
-поскольку каждый элемент является составным 
-ключа и значения.
-Итератор словаря выдает только 
-ключ.
-Это имеет тот же эффект, что и использование метода 
-keys метода словаря. Этот 
-метод выдает ключ каждого элемента в 
-словаря.
-Словари имеют и другие методы 
-для получения значений
+Словари - это особый случай, поскольку каждый элемент является составным 
+ключа и значения.Итератор словаря выдает только ключ.Это имеет тот же эффект, что и 
+использование метода keys метода словаря. Этот метод выдает ключ каждого элемента в 
+словаря.Словари имеют и другие методы для получения значений
+Dictionaries are a special case, since each element is a composite of a key and a 
+value. A dictionary iterator yields only the key. This has the same effect as using the 
+keys method of a dictionary. This method yields the key of each element in the dictionary. 
+Dictionaries have other methods to get values
 """
 profile = {     "name": "Mary Schmidt",     "age": 54 }
 for key in iterable:     print(key)
@@ -53,16 +61,12 @@ age
 """
 
 """
-
-Значения метода 
-выдает значения каждого 
-элемента.
-Метод items выдает кортеж 
-кортеж, содержащий ключ и 
-значение каждого элемента
-Этот кортеж может быть распакован в 
-той же инструкции for, чтобы сделать 
-код более читабельным"""
+Method values ​​yields the values ​​of each element. The items method yields a tuple a tuple 
+containing the key and value of each element This tuple can be unpacked in the same for 
+statement to make the code more readable
+Значения метода выдает значения каждого элемента.Метод items выдает кортеж 
+кортеж, содержащий ключ и значение каждого элементаЭтот кортеж может быть распакован в 
+той же инструкции for, чтобы сделать код более читабельным"""
 for value in iterable.values():
      print(value)
 
@@ -85,13 +89,13 @@ for key, value in iterable.items():
 """
 
 Другой распространенной схемой является использование кортежей 
-вместо словарей для хранения пар ключ-значение
-пар, которые должны оставаться постоянными. Это 
-можно сделать, определив двумерный 
-кортеж (кортеж кортежей).
-В результате итерации будет получен кортеж, который можно 
-распаковать, как это делается в методе items
-метод словаря
+вместо словарей для хранения пар ключ-значениепар, которые должны оставаться постоянными. Это 
+можно сделать, определив двумерный кортеж (кортеж кортежей).В результате итерации будет получен 
+кортеж, который можно распаковать, как это делается в методе itemsметод словаря
+Another common scheme is to use tuplesinstead of dictionaries to store key-value pairs
+that should remain constant. This can be done by defining a two-dimensional tuple 
+(a tuple of tuples).The result of the iteration will be a tuple, which can beunpacked as 
+is done in the items method of a dictionary
 """
 
 days = (
@@ -114,16 +118,14 @@ for key, value in days:
 
 """
 
-В Python есть несколько встроенных функций, которые 
-требуют или принимают итерации и могут быть очень 
-Список, кортеж, 
-dict и set - вот некоторые из них.
-Еще одной из наиболее часто используемых функций является 
-enumerate.
-Функция enumerate принимает любую итерируемую переменную 
-и для каждого значения выдает кортеж, содержащий 
-позицию этого значения и само значение 
-само значение."""
+В Python есть несколько встроенных функций, которые требуют или принимают итерации и могут быть 
+очень Список, кортеж, dict и set - вот некоторые из них.Еще одной из наиболее часто используемых 
+функций является enumerate.Функция enumerate принимает любую итерируемую переменную и для каждого
+ значения выдает кортеж, содержащий позицию этого значения и само значение само значение.
+ Python has several built-in functions that require or accept iterations and can be very 
+List, tuple, dict and set are some of them. Another of the most commonly used functions is 
+enumerate. The enumerate function takes any iterable variable and for each value, it produces 
+a tuple containing the position of that value and the value the value itself"""
 
 list = [
      'Monday',
@@ -145,9 +147,10 @@ for position, value in enumerate(list):
 
 
 """
-Функция enumerate позволяет сделать более простой 
-и более читабельный код по сравнению с альтернативой 
-добавления счетчика вручную"""
+Функция enumerate позволяет сделать более простой и более читабельный код по сравнению с 
+альтернативой добавления счетчика вручную
+The enumerate function allows for simpler and more readable code than the alternative of 
+manually adding a counter."""
 list = [
      'Monday',
      'Tuesday',
@@ -169,6 +172,8 @@ continue"""
 """функция enumerate позволяет сделать более простой 
 более читабельный код по сравнению с альтернативой 
 авления счетчика вручную
+the enumerate function allows for simpler, more readable code than the alternative of 
+manually setting the counter
 """
 t = [
      'Monday',
@@ -188,12 +193,12 @@ for value in list:
 > Tuesd
 """"""
 
-Функция enumerate может даже 
-можно использовать даже для итераций, которые дают 
-итераторы, например, метод items 
-словаря.
-Эта итерабельность может быть дополнительно 
-распаковать с помощью круглых скобок"""
+Функция enumerate может даже можно использовать даже для итераций, которые дают итераторы, 
+например, метод items словаря.Эта итерабельность может быть дополнительно 
+распаковать с помощью круглых скобок
+The enumerate function can even be used for iterables that yield iterators, 
+for example, the items method of a dictionary. This iterability can be further 
+unpacked using parentheses"""
 dict = {
      "name": "Mary Schmidt",
      "age": 54
@@ -213,14 +218,10 @@ for pos, (key, val) in enumerate(dict.items()):
 
 """
 
-Функция zip принимает любое 
-количество итераций и возвращает 
-объект zip.
-Этот объект представляет собой итератор, который 
-выдает кортеж со значением в 
-в каждой позиции каждой переданной 
-итератора.
-"""
+Функция zip принимает любое количество итераций и возвращает объект zip.Этот объект представляет 
+собой итератор, который выдает кортеж со значением в в каждой позиции каждой переданной итератора.
+The zip function takes any number of iterations and returns a zip object. This object is an 
+iterator that yields a tuple with the value at each position of each passed iterator."""
 nums = [1, 2, 3]
 eng = ("one", "two", "three")
 zip1 = zip(nums, eng)
@@ -236,7 +237,14 @@ for item in zip(nums, eng):
 
 
 
-
+"""An iterable of any type (and any 
+number) can be passed to the 
+function. 
+Note that sets can be passed too, but since they have no order 
+the elements are extracted randomly. 
+Each time we execute this code 
+the German words will appear in a 
+different order"""
 """
 Итерабельность любого типа (и любого 
 количество) может быть передано в функцию 
@@ -265,7 +273,11 @@ for item in zip(nums, eng, deu, cat, fra):
 
 
 
-
+"""
+Items can also be 
+unpacked to provide more readable 
+code inside the loop.
+"""
 """
 Предметы также могут быть 
 распаковывать, чтобы обеспечить 
@@ -315,6 +327,16 @@ print(max(nums), min(nums))
 с помощью метода values.
 Он принимает аргумент ключевого слова 
 reverse как булево значение, которое по умолчанию равно False"""
+"""The sorted function returns a new list in 
+alphabetical or numerical order. 
+It does not modify the existing iterable. 
+Sorting a dictionary with sorted will return a 
+list with keys in alphabetical order, 
+since the dictionary is iterated by key by default. 
+You can get a sorted list of values ​​
+using the values ​​method. 
+It takes the keyword argument 
+reverse as a boolean value, which defaults to False"""
 nums = [4, 3, 5, 2, 1]
 print(sorted(nums))
 #[1, 2, 3, 4, 5]
@@ -337,6 +359,11 @@ print(sorted(dict1, reverse=True))
 функции в качестве ключевого аргумента. Эта 
 функция должна возвращать значение, которое 
 которое будет использоваться для сортировки.
+"""
+"""The sorted function can also be used to sort lists of dictionaries
+list based on the values ​​of one of the keys of those dictionaries.
+This can be done by passing a function
+function as a keyword argument. This function must return a value that will be used for sorting.
 """
 dict1 = [
      {"name": "John", "age": 31},
@@ -364,6 +391,13 @@ print(sorted(dict1, key=by_name))
 Функция all возвращает True только в том случае, если 
 все значения в итерируемой таблице являются истинными.
 """
+"""Some functions use iterables to return a 
+boolean value indicating whether the iterable 
+meets a certain condition. 
+The any function will return True only if 
+any of the values ​​in the iterable is true. 
+The all function will return True only if 
+all of the values ​​in the iterable are true."""
 a_list = [1, True, "Mary", {1, 2}]
 print(bool(a_list), any(a_list), all(a_list))
 #True True True
@@ -386,6 +420,14 @@ print(bool(a_list), any(a_list), all(a_list))
 Функция all возвращает True только в том случае, если 
 все значения в итерируемой таблице являются истинными
 """
+"""Some functions that use iterables return a 
+Boolean value indicating whether the iterable 
+meets a certain condition. 
+The any function returns True only if 
+any of the values ​​in the iterable is true. 
+The all function returns True only if 
+all of the values ​​in the iterable are true. 
+"""""
 a_list = [1, True, "Mary", {1, 2}]
 print(bool(a_list), any(a_list), all(a_list))
 #True True True
@@ -417,8 +459,16 @@ all the values in the iterable are truthy"""
 элементу заданной итерируемой таблицы.
 Она возвращает объект map, который представляет собой 
 итерируемый объект, содержащий вывод данного 
-процесс
-"""
+процесс"""
+"""The most common functions in 
+The most common functions in functional programming require both an 
+iterable and a function. 
+This is the case with the map function, which 
+applies a given function to each 
+element of a given iterable table. 
+It returns a map object, which is an 
+iterable object containing the output of the given 
+process"""
 _list = [1, 2, 3, 4, 5]
 by_two = lambda num: num * 2
 a_list_by_two = map(by_two, a_list)
@@ -437,7 +487,13 @@ print(a_list_by_two)
 Она возвращает объект filter, который представляет собой 
 итерируемый объект, содержащий вывод данного 
 процесс"""
-
+"""The filter function returns an iterable 
+with the elements of the given iterable 
+that match the condition specified in the 
+function. 
+It returns a filter object, which is an 
+iterable containing the output of the given 
+process"""
 nums = [1, 2, 3, 4, 5]
 is_odd = lambda num: (num % 2) != 0
 odds = filter(is_odd, nums)
