@@ -114,14 +114,18 @@ for  value in fruits.items():
 
 
 for  value in fruits.items():
-    print( value[:]) # выводит все 
+    print( value[:]) # выводит все  displays everything
 
 
 
 for  value in fruits.items():
-    print( value[-1]) #выводит strawbery, peach, lemon
+    print( value[-1]) 
+    #выводит strawbery, peach, 
+    #lemon displays strawbery, peach, lemon
 
-fruits['green'] = 'watermelon'#добавляем
+
+
+fruits['green'] = 'watermelon'#добавляем adding
 print(fruits)
 
 fruits['green'] = ['watermelon']
@@ -147,16 +151,21 @@ for x in dict3.items():
     print(x, y)
 
 
-for key in dict3: # выводит асе значения ключей, то есть Anna. Paul. Sami
+for key in dict3: 
     print(dict3[key])
+# выводит асе значения ключей, то есть Anna. Paul. Rex
+#outputs all the key values, i.e. Anna. Paul. Rex
 
     
-for key in dict3: # выводит 
+for key in dict3: # выводит  outputs 
     print(key, dict3[key])
 
-
-for key, value in dict3: # выводит асе значения и значений и  ключей 
+# выводит асе значения и значений и  ключей 
+for key, value in dict3: 
     print(key, value)
+#outputs all values ​​and values ​​and keys
+
+
 
  #simpler result
 for value in dict3.values():

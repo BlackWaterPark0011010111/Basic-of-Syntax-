@@ -2,7 +2,9 @@ mystring = 'This is my example string. I have no idea how long it is.'
 #type hints
 print(len(mystring))
 
-#myint = 3.14 #не работает потому что это не строка или не содержит строку
+#myint = 3.14
+ #не работает потому что это не строка или не содержит строку
+#doesn't work because it's not a string or doesn't contain a string
 #print(len(myint))
 
 
@@ -11,6 +13,7 @@ mylist = [1,3,2,'4','2', False]
 print(len(mylist))
 
 print(range(len(mylist))) # выводим колличество символов в списке 'mylist'
+## output the number of characters in the list 'mylist'
 print('-------------------------------------------------------------1---')
 counter = 0
 for x in mylist:
@@ -100,7 +103,7 @@ print('-----------------------------------------------------------12----')
 
 
 mylist3 = { 'is value of 1', ## МЫ СОЗДАЛИ КОРТЕЖИ В КОРТЕЖЕ
-           'is value of 2',
+           'is value of 2',  # WE CREATED CORTEGE WITHIN CORTEGE
            'is value of 3',
            'is value of 4',
            'is value of 5',
@@ -108,7 +111,7 @@ mylist3 = { 'is value of 1', ## МЫ СОЗДАЛИ КОРТЕЖИ В КОРТЕ
            'is value of 7',
            'is value of 8',
            'is value of 9'}
-for x in enumerate(mylist3):  # ENUMERATE ЕКВИВАЛЕНТНО К . ITEMS()
+for x in enumerate(mylist3):  # ENUMERATE ЕКВИВАЛЕНТНО К . ITEMS()   ENUMERATE EQUIVALENT to . ITEMS() 
     print(x)
 print('-----------------------------------------------------------12----')
 
@@ -122,7 +125,7 @@ mylist3 = [  'is value of 1',
            'is value of 8',
            'is value of 9']
 for x,y in enumerate(mylist3):  # ENUMERATE ЕКВИВАЛЕНТНО К . ITEMS()
-    print(x,y)
+    print(x,y)                   # ENUMERATE EQUIVALENT to . ITEMS() 
     
 
 
