@@ -17,6 +17,24 @@ is_even и is_odd (lambda)-- проверяют, четное число или 
 в @decorator (lambda)- модифицируем функцию, и оборачиваем её 
 и добавляем print() до и после вызова функции.
 """
+"""‘‘’clean_text (lambda) - we clean the text (remove punctuation marks and lowercase the text).
+We break the text into individual words using re.findall().Before analysing the text, we need to remove unnecessary characters and standardise it.
+We use a regular expression that searches for words. - re.findall(r‘\b\w+\b’, text.lower()).get_top_words (lambda) - First we filter the words by length (filter()),
+then count their frequency using Counter(), and then sort them in descending order. Count the frequency of each word, sort the words in descending order of frequency.
+To find the most frequent words. Returns the top_n of the most frequent words, this allows us to quickly get statistics on the most 
+filter(lambda word: len(word) >= min_length, words) - remove words that are too short.
+Counter() - counts the number of occurrences of words. 
+sorted(..., key=lambda item: item[1], reverse=True) - sorts words by decreasing frequency.
+and use it in analyse_text() to show which words occur most often.
+analyze_text(text)-- the main function, this is where we run the text analysis. analyze_text(text)-- uses clean_text() 
+clean_text(text)--clean text
+top_words = get_top_words(words) - get the list of frequent words. and display the statistics of top 5 words.
+analyze_text(text)-this is the main function of text analysis. It calls
+clean_text()-analysis and get_top_words() - to analyse the frequency.
+In add_one(lambda)--we take a number and increment it by 1. 
+is_even and is_odd (lambda)-- prov
+
+Translated with DeepL.com (free version)"""
 import sys
 import re
 from collections import Counter
@@ -47,7 +65,7 @@ def analyze_text(text):
         print(f"   - {word}: {freq} раз(а)")
 
 
-sample_text = "Нельзя, чтоб страх повелевал уму;Иначе мы отходим от свершений,Как зверь, когда мерещится ему."
+sample_text = "We must not let fear command the mind; Otherwise we depart from our endeavours, Like a beast when he dreams.’"
 analyze_text(sample_text)
 
 
@@ -60,7 +78,7 @@ add_numbers = lambda x, y: x + y
 print(add_numbers(2, 3))  # Вывод: 5
 
 
-hello = lambda: "Привет, lambda!"
+hello = lambda: "Hello, lambda!"
 print(hello())  # Вывод: "Привет, lambda!"
 
 
@@ -69,7 +87,7 @@ print(power(2, 5))
 
 is_even = lambda x: x % 2 == 0
 is_odd = lambda x: x % 2 != 0
-print(is_even(4), is_odd(5))  # Вывод: True 
+print(is_even(4), is_odd(5))  # Output: 5
 
 
 numbers = [1, 2, 3, 4]
@@ -80,13 +98,13 @@ def outer_function(x):
     return lambda y: x + y
 
 add_five = outer_function(5)
-print(add_five(10))  # Вывод: 15
+print(add_five(10))  # Output: 15
 
 
-decorator = lambda func: lambda: (print("✨ До функции"), func(), print("✨ После функции"))
+decorator = lambda func: lambda: (print(" b4 func"), func(), print(" after func"))
 
 @decorator
 def my_func():
-    print("🚀 Внутри функции")
+    print("Inside a function")
 
 my_func()
