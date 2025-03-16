@@ -1,16 +1,16 @@
 from datetime import datetime
-import datetime #импортируем модуль сначала 
+import datetime #импортируем модуль сначала  import the module first
 import calendar
 import pytz
 
-from datetime import datetime,timedelta # импортируем timedata
+from datetime import datetime,timedelta # import timedata
 
 print(dir(datetime))
 
-#print(datetime.datetime.now())# смотрим время сдесь и сейчас
+#print(datetime.datetime.now())# смотрим время сдесь и сейчас let's look at the time here and now
  
 
-import datetime as dt #мы меняем имя дататайп на dt
+import datetime as dt #мы меняем имя дататайп на dt  we change the name of the datatype to dt
 
 
 print(dt.datetime.now())
