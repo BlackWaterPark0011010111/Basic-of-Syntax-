@@ -4,7 +4,7 @@ def create_plate(color, *args):
 
 create_plate('black', 'oval', 'with print')
 
-print(']]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]')
+print('---------------------------------------1--')
 
 def create_plate(color, **kwargs):
     print(f'Colour:  {color}' )
@@ -12,7 +12,7 @@ def create_plate(color, **kwargs):
 
 create_plate('black', shape = 'oval', pattern = 'with print')
 
-print(']]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]')
+print('---------------------------------------2--')
 
 
 

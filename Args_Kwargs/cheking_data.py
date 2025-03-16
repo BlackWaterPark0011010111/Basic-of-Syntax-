@@ -30,7 +30,7 @@ def validate_input(input_data, validation_rules):
             elif rule == "integer":
                 if not validate_integer(value):
                     raise ValueError(f"{key} must be an integer.")
-    print("All inputs are valid!")  # Выводим сообщение, если все данные прошли проверку
+    print("All inputs are valid!")  # """если все данные прошли проверку, видим сообщение  if all data passed the check, we see the message"""
     return True
 
 # Example usage

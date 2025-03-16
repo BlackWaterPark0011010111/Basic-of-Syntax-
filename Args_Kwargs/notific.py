@@ -24,10 +24,10 @@ def send_notification(*args, **kwargs):
 
     try:
         with smtplib.SMTP(smtp_server, smtp_port) as server:
-            server.starttls()  # Защищенное соединение
-            server.login(smtp_user, smtp_pass)  # Вход в почтовый аккаунт
+            server.starttls()  # Защищенное соединение  Secure connection
+            server.login(smtp_user, smtp_pass)  # Вход в почтовый аккаунт  Login to your mail account
             text = msg.as_string()
-            server.sendmail(smtp_user, to_email, text)  # Отправка письма
+            server.sendmail(smtp_user, to_email, text)  # Отправка письма   Sending a letter
             print(f"Notification sent to {to_email}")
     except Exception as e:
         print(f"Error: {e}")
