@@ -5,7 +5,7 @@ students = {
     'student1' : ['Anna', 'Berlin', {'k':'v','m':'s'}],
     'student2' : 'Paul',
     'student3': 'Daniel',
-    'student4' : 'Sami',
+    'student4' : 'Sam',
     'drinks':{
             'coffee': 'caffee lattee',
             'beer': 'pilsner',
@@ -22,7 +22,7 @@ students = {
 'student1': 'Anna',
 'student2': 'peet',
 'student3': 'Kole',
-'student4' : 'Sami',
+'student4' : 'Sam',
 'Language': ['Python', 'c#', 'Java']
 
 }
