@@ -24,6 +24,32 @@
 Вызывает read_grades().
 Если список оценок не пуст, вычисляет и выводит средний балл.
 """
+"""Code Description: Student Grades System
+This code is a simple student grade management system with exception handling.
+
+What the programme does.
+Reads grades from a file - The user enters a file name, the program tries to open the file and read the grades.
+Handles errors - If the file is missing or contains incorrect data (non-numeric values), the programme reports an error.
+Calculates the average grade - If the data is correct, the programme calculates the average grade.
+Outputs the result - Shows the average grade or reports that the calculation was not possible.
+The code protects the programme from failures by handling various exceptions (FileNotFoundError, ValueError).
+Function read_grades(filename)
+
+Opens a file and reads its contents.
+It goes through the lines trying to convert them to float.
+If an error (ValueError) is encountered, it displays a warning message.
+If the file is empty or has no valid evaluations, throws an exception.
+Handles FileNotFoundError if the file is missing.
+Function calculate_average(grades)
+
+Calculates the average grade.
+Checks division by zero (ZeroDivisionError).
+Main programme
+
+Requests a file name from the user.
+Calls read_grades().
+If the list of grades is not empty, calculates and outputs the average grade.
+"""
 import os
 
 

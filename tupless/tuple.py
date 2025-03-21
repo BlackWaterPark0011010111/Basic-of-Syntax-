@@ -6,17 +6,20 @@ print(tuple1)
 #print(tuple.count)  #chto delaet
 
 print("---------------------------------------------------------")
-
+# access to tuple elements
 # доступ к элементам кортежа
 print(tuple1[-1][-1])
 print(tuple1[::-1])
 print(tuple1[:3])
+
+# creating a tuple using a constructor
 # создание кортежа с помощью конструктора
 tuple2 = tuple("A string that will be turned into a tuple...")
 print(tuple2)
 
 list1 = [1, 2, 3, True, False, 4, 5, 6, 7, 8, 9]
 
+# conversion between tuple and list
 # преобразование между кортежем и списком
 tuple3 = tuple(list1)  # pomeschaem list iz 1,2 u 3
 print("Преобразование списка в кортеж с помощью функции tuple():", tuple3)
@@ -28,9 +31,9 @@ print("Преобразование списка в кортеж с помощь
 print("---------------------------------------------------------")
 
 print(tuple3.index(True, 2))  # проверяем индекс "2" и True, из листа, на каком месте она
-
+# check index "2" and True, from the sheet, in what place it is
 print("---------------------------------------------------------")
-
+# count elements within a tuple
 # счет элементов внутри кортежа
 print(tuple3.count(3))
 
@@ -41,16 +44,20 @@ print(len(tuple3))
 
 print("The amount of all elements inside a tuple list: ", len(tuple3))
 print("------------------------------------------------------3---")
-
+# checking unique values ​​$$$$$$what to check unique values$$$$$$$$
 # проверка уникальных значений $$$$$$chto znachit unique values$$$$$$$$
 uniqueValues = set(tuple3)
 print(uniqueValues)
 print("There are " + str(len(uniqueValues)) + " unique, non-duplicated values")
-# list v tuple eto nehashiruemyi list i esli dobavit list v list budet oshibka
-# mu ne mozhem dobavlyat slovar(dictionary), v spisok kotoryi stal tuple
-# i my ne mozhem dobavlyat list v list kotoryi stal tuple
+# список в кортеже — это список, который нельзя добавить, и если вы добавите список в список, будет ошибка
+# мы не можем добавить словарь в список, который стал кортежем
+# я не могу добавить список в список, который стал кортежем
+# list in tuple is a list that cannot be added and if you add list to list there will be a mistake#но не можем изменить его на список
+# we can't add a dictionary to a list that has become a tuple
+# i can't add a list to a list that has become a tuple
 tuple4 = ([12, 2, 3, 4], [5, 6, 7])  # mu mozhem sozdat list v tuple
-# no ne mozhem izmenyat ego na list
+#но не можем изменить его на список
+#but we can't change it to a list
 print(tuple4.count([12, 2, 3, 4]))
 print("---------------------------------------------------------")
 

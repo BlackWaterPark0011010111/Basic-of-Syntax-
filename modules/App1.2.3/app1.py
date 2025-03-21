@@ -1,7 +1,9 @@
 import sys
 
 def main():
-    args = sys.argv[1:]  # Получаем аргументы командной строки, пропуская имя скрипта
+    args = sys.argv[1:]  
+    # Получаем аргументы командной строки, пропуская имя скрипта
+# Get command line arguments by omitting the script name
 
     if '--help' in args:
         print("Usage: app1.py [--fast] [--help]")

@@ -5,7 +5,7 @@ import shutil
 ROOT = r".\Python"
 DATA_ROOT = ROOT
 # Печать значений ROOT и DATA_ROOT
-
+# Print ROOT and DATA_ROOT values
 
 def show_data_list():
     for item in os.listdir(DATA_ROOT):
@@ -22,9 +22,10 @@ print('----------------------------------------3---')
 
 
 #Функция create_data_directories будет принимать список
-#  имен каталогов и создавать их в DATA_ROOT, если они не 
-# существуют:
+#  имен каталогов и создавать их в DATA_ROOT, если они не  существуют
+#The create_data_directories function will take a list of directory names and create them in DATA_ROOT if they don't exist
 
+# Task 3: Function for creating directories
 # Задание 3: Функция для создания каталогов
 def create_data_directories(dirs):
     for directory in dirs:
@@ -41,7 +42,9 @@ create_data_directories(dirs)
 
 
 print('---------------------------------------4----')
-
+#The classify function takes a dictionary and moves 
+# files to the appropriate directories:
+# Task 4: Function to move files to the appropriate directories
 #Функция classify принимает словарь и перемещает 
 # файлы в соответствующие каталоги:
 # Задание 4: Функция для перемещения файлов в соответствующие каталоги
@@ -65,7 +68,7 @@ classify(categories)
 
 print('--------------------------------------5-----')
 #Создадим отчет pending_jobs.csv с использованием данных 
-
+#Let's create a pending_jobs.csv report using the data
 import csv
 def generate_pending_jobs_report():
     reports_dir = os.path.join(DATA_ROOT)

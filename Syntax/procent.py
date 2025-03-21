@@ -14,3 +14,5 @@ print ( "total money =" , total )
 "кладу их опд 2 % годовых, все проценты доьавляются к основному вкладу, найти сколько денег будет на дкпозите через 5 лет"
 
 
+"monthly contribution 100$"
+"I put them OPD 2% per annum, all interest is added to the main contribution, find how much money will be in the dcposit in 5 years"
