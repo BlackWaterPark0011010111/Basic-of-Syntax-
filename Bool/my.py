@@ -66,3 +66,37 @@ def check(x):
 
 # print(check(False) and check(True))  
 # print(check(True) or check(False))   
+
+print("\n-----------------------------------------------------------------------7-----")
+# булевы операции с числами
+n1 = 0
+n2 = 7
+
+# числа в булевом контексте
+print("bool(n1):", bool(n1))  
+print("bool(n2):", bool(n2))  
+
+# print("n1 and n2:", n1 and n2)  # 0 возвращает последний операнд
+# print("n1 or n2:", n1 or n2) 
+# print("not n1:", not n1)   
+
+print("\n-----------------------------------------------------------------------8-----")
+#сравнение строк
+
+
+s1 = "hello"
+s2 = "world"
+print("s1 == s2:", s1 == s2)  
+# print("s1.startswith('h') and s2.endswith('d'):")  
+print("s1 != s2:", s1 != s2)  
+
+
+print("\n-----------------------------------------------------------------------9-----")
+# булевы в numpy
+
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5])
+mask = arr > 3
+
+# print("Четные числа:", arr[arr % 2 == 0])  
