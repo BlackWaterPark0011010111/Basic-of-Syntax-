@@ -158,3 +158,43 @@ names = ["Alice", "Bob", "Charlie"]
 # long_name = next((name for name in names if len(name) > 5), None)
 # if long_name:
 #     print("Первое длинное имя:", long_name)
+
+# if (count := len([n for n in names if n.startswith('A')])) > 0:
+#     print(f"Найдено {count} имен на 'A'")  
+
+# с моржом
+if (long_name := next((name for name in names if len(name) > 5), None)):
+    print("Первое длинное имя:", long_name)  
+
+print("\n----------------------------------------------------------------------14-----")
+# булевы в словарях
+settings = {
+# settings['dark_mode'] = False
+    'dark_mode': True,
+    'notifications': False,
+    'auto_save': True
+}
+
+print("Темный режим включен:", settings['dark_mode'])  
+# print("Темный режим после изменения:", settings['dark_mode'])  
+print("Уведомления выключены:", not settings['notifications'])  
+
+
+
+
+print("\n----------------------------------------------------------------------15-----")
+# сложные булевы выражения
+age = 25
+is_student = True
+has_discount = False
+
+# if age < 18:
+#     print("Детская скидка")
+# elif is_student:
+#     print("Студенческая скидка")
+# else:
+#     print("Без скидки")
+if (age < 18 or is_student) and not has_discount:
+    print("Даем скидку!")  
+else:
+    print("Без скидки")
