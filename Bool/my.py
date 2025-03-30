@@ -198,3 +198,33 @@ if (age < 18 or is_student) and not has_discount:
     print("Даем скидку!")  
 else:
     print("Без скидки")
+
+
+print("\n----------------------------------------------------------------------16-----")
+# булевы функции
+def is_even(n):
+    return n % 2 == 0
+
+def is_positive(n):
+    return n > 0
+
+numbers = [-2, -1, 0, 1, 2]
+
+print("Четные положительные числа:")
+for num in numbers:
+    if is_even(num) and is_positive(num):
+        print(num)  # 2
+# print([n for n in numbers if is_even(n) and is_positive(n)]) 
+
+print("\n----------------------------------------------------------------------17-----")
+# сравнение с несколькими значениями
+color = "red"
+
+# if color == "red" or color == "green" or color == "blue":
+#     print("Основной цвет")
+
+# более питонический способ
+if color in {"red", "green", "blue"}:
+    print("Основной цвет")  
+
+# primary_colors = ["red", "green", "blue"]
