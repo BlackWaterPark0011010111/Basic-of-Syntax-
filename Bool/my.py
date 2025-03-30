@@ -228,3 +228,54 @@ if color in {"red", "green", "blue"}:
     print("Основной цвет")  
 
 # primary_colors = ["red", "green", "blue"]
+# if color in primary_colors:
+#     print("Основной цвет")
+
+print("\n----------------------------------------------------------------------18-----")
+# булевы значения и тернарный оператор
+temperature = 30
+weather = "hot" if temperature > 25 else "cold"
+
+print("Погода:", weather)  
+# description = "very hot" if temperature > 35 else "hot" if temperature > 25 else "moderate" if temperature > 15 else "cold"
+# print("description:", description)
+
+print("\n----------------------------------------------------------------------19-----")
+# all() с генераторами
+numbers = [10, 20, 30, 40, 50]
+
+#все ли числа больше 5
+print("Все числа > 5:", all(n > 5 for n in numbers))  
+
+# все ли числа четные
+# for n in numbers:
+#     if n % 2 != 0:
+#         are_all_even = False
+#         break
+# print("Все числа четные:", are_all_even)
+print("Все числа четные:", all(n % 2 == 0 for n in numbers)) 
+
+
+print("\n----------------------------------------------------------------------20-----")
+# any() с обработкой исключений
+values = ["123", "45.6", "hello", "78"]
+
+#можно ли хоть что-то преобразовать в float
+print("Можно преобразовать хоть что-то в float:", 
+      any(is_float(v) for v in values))  
+
+def is_float(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+# has_float = False
+# for v in values:
+#     if is_float(v):
+#         has_float = True
+#         break
+# print("Есть числа с плавающей точкой:", has_float)
+
+print("\n----------------------------------------------------------------------------")
