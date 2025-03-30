@@ -100,3 +100,61 @@ arr = np.array([1, 2, 3, 4, 5])
 mask = arr > 3
 
 # print("Четные числа:", arr[arr % 2 == 0])  
+# print("Числа > 2 и < 5:", arr[(arr > 2) & (arr < 5)])  
+print("Массив:", arr)
+print("Маска (arr > 3):", mask)  
+print("Применение маски:", arr[mask])  
+
+
+print("\n----------------------------------------------------------------------10-----")
+# pandas булева индексация
+
+import pandas as pd
+
+data = {'name': ['Alice', 'Bob', 'Charlie'], 'age': [25, 30, 35]}
+df = pd.DataFrame(data)
+
+print("Исходный DataFrame:")
+print(df)
+
+# фильтрация по условию
+adults = df[df['age'] > 28]
+# print("\nВозраст между 26 и 33:")
+print("\nЛюди старше 28:")
+# print("\nИмена начинающиеся на 'A' или возраст > 30:")
+# print(df[(df['name'].str.startswith('A')) | (df['age'] > 30)])
+# print(df[df['age'].between(26, 33)])
+print(adults)
+
+print("\n----------------------------------------------------------------------11-----")
+# any() и all()
+
+numbers = [0, 1, 2, 3, 4]
+
+print("any(numbers):", any(numbers))  
+# print("any(n > 2 for n in numbers):", any(n > 2 for n in numbers)) 
+# print("all(n > 2 for n in numbers):", all(n > 2 for n in numbers)) 
+
+print("\n----------------------------------------------------------------------12-----")
+# булевы переменные как флаги
+is_raining = True
+has_umbrella = False
+
+if is_raining and not has_umbrella:
+
+# has_umbrella = True
+# if is_raining and not has_umbrella:
+#     print("Нужно взять зонт!")
+# else:
+#     print("Можно идти без зонта")  
+    print("Нужно взять зонт!")  
+else:
+    print("Можно идти без зонта")
+
+print("\n----------------------------------------------------------------------13-----")
+# оператор := (морж) в условиях
+names = ["Alice", "Bob", "Charlie"]
+
+# long_name = next((name for name in names if len(name) > 5), None)
+# if long_name:
+#     print("Первое длинное имя:", long_name)
