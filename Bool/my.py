@@ -35,6 +35,34 @@ for v in values:
     else:
         print(f"{str(v):<6} -> False")
 
-# bool([]) 
-# bool([False]) 
-# bool(-1)
+
+print("\n-----------------------------------------------------------------------4-----")
+# работа с None
+var1 = None
+var2 = 42
+
+print("var1 is None:", var1 is None)   
+print("var2 is not None:", var2 is not None)  
+
+# if var1:
+#     print("var1 имеет значение")  #не выполнится
+# else:
+#     print("var1 пустое")  #выполнится
+
+print("\n-----------------------------------------------------------------------5-----")
+# булевы выражения с in
+fruits = ["apple", "banana", "orange"]
+
+print("'apple' in fruits:", "apple" in fruits)  
+print("'pear' not in fruits:", "pear" not in fruits)  
+
+# print("'apple' in fruits and len(fruits) > 2:", "apple" in fruits and len(fruits) > 2) 
+
+print("\n-----------------------------------------------------------------------6-----")
+# короткие вычисления (short-circuit)
+def check(x):
+    print("check выполнен для", x)
+    return x
+
+# print(check(False) and check(True))  
+# print(check(True) or check(False))   
