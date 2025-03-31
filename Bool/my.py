@@ -1,9 +1,9 @@
 print("\n-----------------------------------------------------------------------1-----")
-# булевы операции - самые основы
+# Boolean operations - the basics
 x = True
 y = False
 
-# базовые операции
+# Basic operations
 print("x and y:", x and y)  # False
 print("x or y:", x or y)    # True
 print("not x:", not x)      # False
@@ -12,7 +12,7 @@ print("not x:", not x)      # False
 # print("y == (not x):", y == (not x))  
 
 print("\n-----------------------------------------------------------------------2-----")
-# сравнения и булевы значения
+# Comparisons and boolean values
 a = 5
 b = 10
 
@@ -24,20 +24,20 @@ print("a != b:", a != b)
 # print("(a > b) or (a == 5):", (a > b) or (a == 5))    
 
 print("\n-----------------------------------------------------------------------3-----")
-# приведение к bool
+# Type conversion to bool
 values = [0, 1, "", "hello", None, [], [1,2,3]]
 
-print("Проверка значений на истинность:")
+print("Checking truthiness of values:")
 for v in values:
     # print(f"{str(v):<6} ->", bool(v))
     if v:
-        print(f"{str(v):<6} -> True")  # с форматированием
+        print(f"{str(v):<6} -> True")  # with formatting
     else:
         print(f"{str(v):<6} -> False")
 
 
 print("\n-----------------------------------------------------------------------4-----")
-# работа с None
+# Working with None
 var1 = None
 var2 = 42
 
@@ -45,237 +45,6 @@ print("var1 is None:", var1 is None)
 print("var2 is not None:", var2 is not None)  
 
 # if var1:
-#     print("var1 имеет значение")  #не выполнится
+#     print("var1 has a value")  # won't execute
 # else:
-#     print("var1 пустое")  #выполнится
-
-print("\n-----------------------------------------------------------------------5-----")
-# булевы выражения с in
-fruits = ["apple", "banana", "orange"]
-
-print("'apple' in fruits:", "apple" in fruits)  
-print("'pear' not in fruits:", "pear" not in fruits)  
-
-# print("'apple' in fruits and len(fruits) > 2:", "apple" in fruits and len(fruits) > 2) 
-
-print("\n-----------------------------------------------------------------------6-----")
-# короткие вычисления (short-circuit)
-def check(x):
-    print("check выполнен для", x)
-    return x
-
-# print(check(False) and check(True))  
-# print(check(True) or check(False))   
-
-print("\n-----------------------------------------------------------------------7-----")
-# булевы операции с числами
-n1 = 0
-n2 = 7
-
-# числа в булевом контексте
-print("bool(n1):", bool(n1))  
-print("bool(n2):", bool(n2))  
-
-# print("n1 and n2:", n1 and n2)  # 0 возвращает последний операнд
-# print("n1 or n2:", n1 or n2) 
-# print("not n1:", not n1)   
-
-print("\n-----------------------------------------------------------------------8-----")
-#сравнение строк
-
-
-s1 = "hello"
-s2 = "world"
-print("s1 == s2:", s1 == s2)  
-# print("s1.startswith('h') and s2.endswith('d'):")  
-print("s1 != s2:", s1 != s2)  
-
-
-print("\n-----------------------------------------------------------------------9-----")
-# булевы в numpy
-
-import numpy as np
-
-arr = np.array([1, 2, 3, 4, 5])
-mask = arr > 3
-
-# print("Четные числа:", arr[arr % 2 == 0])  
-# print("Числа > 2 и < 5:", arr[(arr > 2) & (arr < 5)])  
-print("Массив:", arr)
-print("Маска (arr > 3):", mask)  
-print("Применение маски:", arr[mask])  
-
-
-print("\n----------------------------------------------------------------------10-----")
-# pandas булева индексация
-
-import pandas as pd
-
-data = {'name': ['Alice', 'Bob', 'Charlie'], 'age': [25, 30, 35]}
-df = pd.DataFrame(data)
-
-print("Исходный DataFrame:")
-print(df)
-
-# фильтрация по условию
-adults = df[df['age'] > 28]
-# print("\nВозраст между 26 и 33:")
-print("\nЛюди старше 28:")
-# print("\nИмена начинающиеся на 'A' или возраст > 30:")
-# print(df[(df['name'].str.startswith('A')) | (df['age'] > 30)])
-# print(df[df['age'].between(26, 33)])
-print(adults)
-
-print("\n----------------------------------------------------------------------11-----")
-# any() и all()
-
-numbers = [0, 1, 2, 3, 4]
-
-print("any(numbers):", any(numbers))  
-# print("any(n > 2 for n in numbers):", any(n > 2 for n in numbers)) 
-# print("all(n > 2 for n in numbers):", all(n > 2 for n in numbers)) 
-
-print("\n----------------------------------------------------------------------12-----")
-# булевы переменные как флаги
-is_raining = True
-has_umbrella = False
-
-if is_raining and not has_umbrella:
-
-# has_umbrella = True
-# if is_raining and not has_umbrella:
-#     print("Нужно взять зонт!")
-# else:
-#     print("Можно идти без зонта")  
-    print("Нужно взять зонт!")  
-else:
-    print("Можно идти без зонта")
-
-print("\n----------------------------------------------------------------------13-----")
-# оператор := (морж) в условиях
-names = ["Alice", "Bob", "Charlie"]
-
-# long_name = next((name for name in names if len(name) > 5), None)
-# if long_name:
-#     print("Первое длинное имя:", long_name)
-
-# if (count := len([n for n in names if n.startswith('A')])) > 0:
-#     print(f"Найдено {count} имен на 'A'")  
-
-# с моржом
-if (long_name := next((name for name in names if len(name) > 5), None)):
-    print("Первое длинное имя:", long_name)  
-
-print("\n----------------------------------------------------------------------14-----")
-# булевы в словарях
-settings = {
-# settings['dark_mode'] = False
-    'dark_mode': True,
-    'notifications': False,
-    'auto_save': True
-}
-
-print("Темный режим включен:", settings['dark_mode'])  
-# print("Темный режим после изменения:", settings['dark_mode'])  
-print("Уведомления выключены:", not settings['notifications'])  
-
-
-
-
-print("\n----------------------------------------------------------------------15-----")
-# сложные булевы выражения
-age = 25
-is_student = True
-has_discount = False
-
-# if age < 18:
-#     print("Детская скидка")
-# elif is_student:
-#     print("Студенческая скидка")
-# else:
-#     print("Без скидки")
-if (age < 18 or is_student) and not has_discount:
-    print("Даем скидку!")  
-else:
-    print("Без скидки")
-
-
-print("\n----------------------------------------------------------------------16-----")
-# булевы функции
-def is_even(n):
-    return n % 2 == 0
-
-def is_positive(n):
-    return n > 0
-
-numbers = [-2, -1, 0, 1, 2]
-
-print("Четные положительные числа:")
-for num in numbers:
-    if is_even(num) and is_positive(num):
-        print(num)  # 2
-# print([n for n in numbers if is_even(n) and is_positive(n)]) 
-
-print("\n----------------------------------------------------------------------17-----")
-# сравнение с несколькими значениями
-color = "red"
-
-# if color == "red" or color == "green" or color == "blue":
-#     print("Основной цвет")
-
-# более питонический способ
-if color in {"red", "green", "blue"}:
-    print("Основной цвет")  
-
-# primary_colors = ["red", "green", "blue"]
-# if color in primary_colors:
-#     print("Основной цвет")
-
-print("\n----------------------------------------------------------------------18-----")
-# булевы значения и тернарный оператор
-temperature = 30
-weather = "hot" if temperature > 25 else "cold"
-
-print("Погода:", weather)  
-# description = "very hot" if temperature > 35 else "hot" if temperature > 25 else "moderate" if temperature > 15 else "cold"
-# print("description:", description)
-
-print("\n----------------------------------------------------------------------19-----")
-# all() с генераторами
-numbers = [10, 20, 30, 40, 50]
-
-#все ли числа больше 5
-print("Все числа > 5:", all(n > 5 for n in numbers))  
-
-# все ли числа четные
-# for n in numbers:
-#     if n % 2 != 0:
-#         are_all_even = False
-#         break
-# print("Все числа четные:", are_all_even)
-print("Все числа четные:", all(n % 2 == 0 for n in numbers)) 
-
-
-print("\n----------------------------------------------------------------------20-----")
-# any() с обработкой исключений
-values = ["123", "45.6", "hello", "78"]
-
-#можно ли хоть что-то преобразовать в float
-print("Можно преобразовать хоть что-то в float:", 
-      any(is_float(v) for v in values))  
-
-def is_float(s):
-    try:
-        float(s)
-        return True
-    except ValueError:
-        return False
-
-# has_float = False
-# for v in values:
-#     if is_float(v):
-#         has_float = True
-#         break
-# print("Есть числа с плавающей точкой:", has_float)
-
-print("\n----------------------------------------------------------------------------")
+#     print("var1 is empty")  # will execute
