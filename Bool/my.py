@@ -130,3 +130,79 @@ numbers = [0, 1, 2, 3, 4]
 print("any(numbers):", any(numbers))  
 # print("any(n > 2 for n in numbers):", any(n > 2 for n in numbers)) 
 # print("all(n > 2 for n in numbers):", all(n > 2 for n in numbers)) 
+
+print("\n----------------------------------------------------------------------12-----")
+# Boolean variables as flags
+is_raining = True
+has_umbrella = False
+
+if is_raining and not has_umbrella:
+# has_umbrella = True
+# if is_raining and not has_umbrella:
+#     print("You need to take an umbrella!")
+# else:
+#     print("You can go without an umbrella")  
+    print("You need to take an umbrella!")  
+else:
+    print("You can go without an umbrella")
+
+print("\n----------------------------------------------------------------------13-----")
+# Walrus operator (:=) in conditions
+names = ["Alice", "Bob", "Charlie"]
+
+# long_name = next((name for name in names if len(name) > 5), None)
+# if long_name:
+#     print("First long name:", long_name)
+
+# if (count := len([n for n in names if n.startswith('A')])) > 0:
+#     print(f"Found {count} names starting with 'A'")  
+
+# With walrus operator
+if (long_name := next((name for name in names if len(name) > 5), None)):
+    print("First long name:", long_name)  
+
+print("\n----------------------------------------------------------------------14-----")
+# Booleans in dictionaries
+settings = {
+# settings['dark_mode'] = False
+    'dark_mode': True,
+    'notifications': False,
+    'auto_save': True
+}
+
+print("Dark mode enabled:", settings['dark_mode'])  
+# print("Dark mode after change:", settings['dark_mode'])  
+print("Notifications disabled:", not settings['notifications'])  
+
+print("\n----------------------------------------------------------------------15-----")
+# Complex boolean expressions
+age = 25
+is_student = True
+has_discount = False
+
+# if age < 18:
+#     print("Child discount")
+# elif is_student:
+#     print("Student discount")
+# else:
+#     print("No discount")
+if (age < 18 or is_student) and not has_discount:
+    print("Applying discount!")  
+else:
+    print("No discount")
+
+print("\n----------------------------------------------------------------------16-----")
+# Boolean functions
+def is_even(n):
+    return n % 2 == 0
+
+def is_positive(n):
+    return n > 0
+
+numbers = [-2, -1, 0, 1, 2]
+
+print("Even positive numbers:")
+for num in numbers:
+    if is_even(num) and is_positive(num):
+        print(num)  # 2
+# print([n for n in numbers if is_even(n) and is_positive(n)]) 
