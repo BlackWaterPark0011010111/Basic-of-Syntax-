@@ -206,3 +206,66 @@ for num in numbers:
     if is_even(num) and is_positive(num):
         print(num)  # 2
 # print([n for n in numbers if is_even(n) and is_positive(n)]) 
+
+print("\n----------------------------------------------------------------------17-----")
+# Multiple value comparison
+color = "red"
+
+# if color == "red" or color == "green" or color == "blue":
+#     print("Primary color")
+
+# More pythonic way
+if color in {"red", "green", "blue"}:
+    print("Primary color")  
+
+# primary_colors = ["red", "green", "blue"]
+# if color in primary_colors:
+#     print("Primary color")
+
+print("\n----------------------------------------------------------------------18-----")
+# Boolean values and ternary operator
+temperature = 30
+weather = "hot" if temperature > 25 else "cold"
+
+print("Weather:", weather)  
+# description = "very hot" if temperature > 35 else "hot" if temperature > 25 else "moderate" if temperature > 15 else "cold"
+# print("description:", description)
+
+print("\n----------------------------------------------------------------------19-----")
+# all() with generators
+numbers = [10, 20, 30, 40, 50]
+
+# Are all numbers greater than 5
+print("All numbers > 5:", all(n > 5 for n in numbers))  
+
+# Are all numbers even
+# for n in numbers:
+#     if n % 2 != 0:
+#         are_all_even = False
+#         break
+# print("All numbers are even:", are_all_even)
+print("All numbers are even:", all(n % 2 == 0 for n in numbers)) 
+
+print("\n----------------------------------------------------------------------20-----")
+# any() with exception handling
+values = ["123", "45.6", "hello", "78"]
+
+# Can at least one value be converted to float
+print("Can convert at least one value to float:", 
+      any(is_float(v) for v in values))  
+
+def is_float(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+# has_float = False
+# for v in values:
+#     if is_float(v):
+#         has_float = True
+#         break
+# print("Contains float numbers:", has_float)
+
+print("\n----------------------------------------------------------------------------")
