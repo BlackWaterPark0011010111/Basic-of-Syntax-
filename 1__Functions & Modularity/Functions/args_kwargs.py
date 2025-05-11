@@ -89,7 +89,7 @@ def process_items(*items, **processing_options):
     if not items:
         return None
     
-    #просто возвращать список:
+    #просто возвращать список
     #return list(items)
     
     if processing_options.get('count', False):
@@ -121,32 +121,27 @@ def process_items(*items, **processing_options):
 
 
 if __name__ == "__main__":
-    print("=== Math Examples ===")
     print("Average:", calculate_stats(1, 2, 3, 4, 5))
     #print("Average (empty):", calculate_stats())
-    print("Sum with rounding:", calculate_stats(1.1, 2.2, 3.3, operation='sum', round_digits=1))
-    print("Median ignoring negatives:", calculate_stats(-1, 2, 3, -4, 5, operation='median', ignore_negative=True))
+    print("sum with rounding:", calculate_stats(1.1, 2.2, 3.3, operation='sum', round_digits=1))
+    print("median ignoring negatives:", calculate_stats(-1, 2, 3, -4, 5, operation='median', ignore_negative=True))
     #print("Product:", calculate_stats(2, 3, 4, operation='prod'))
     
-    print("\n=== Random Examples ===")
-    print("Uniform:", generate_random_values(count=3, dist='uniform', low=5, high=10))
+    print("uniform:", generate_random_values(count=3, dist='uniform', low=5, high=10))
     #print("Default random:", generate_random_values(count=2))
-    print("Normal:", generate_random_values(count=3, dist='normal', mean=100, stddev=15))
-    print("Integers:", generate_random_values(count=5, dist='int', low=1, high=6))
+    print("normal:", generate_random_values(count=3, dist='normal', mean=100, stddev=15))
+    print("integers:", generate_random_values(count=5, dist='int', low=1, high=6))
     #print("Invalid dist:", generate_random_values(dist='invalid'))
     
-    print("\n=== Collections Examples ===")
     sample_items = [1, 2, 2, 'a', 'b', 'a', 3.14, True, False, True]
     #по разным наборам данных:
     # sample_items = ['apple', 'banana', 'apple', 'orange']
-    print("Count:", process_items(*sample_items, count=True))
-    print("Unique:", process_items(*sample_items, unique=True))
-    print("Group by type:", process_items(*sample_items, group_by_type=True))
+    print("count:", process_items(*sample_items, count=True))
+    print("unique:", process_items(*sample_items, unique=True))
+    print("group by type:", process_items(*sample_items, group_by_type=True))
     #print("Default processing:", process_items(*sample_items))
     
-    #Дополнительные эксперименты:
-    #print("\n=== Extra Experiments ===")
-    ## Передача списка как *args
+    ##передача списка как *args
     #nums = [5, 10, 15]
     #print("Unpacked list:", calculate_stats(*nums))
     
