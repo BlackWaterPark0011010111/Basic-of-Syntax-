@@ -65,7 +65,7 @@ def generate_random_values(*, count=1, **dist_params):
         #if low == high:
         #return [low] * count
         return [random.uniform(low, high) for _ in range(count)]
-    elif dist_type == 'normal':
+    elif dist_type == 'normal': 
         mean = dist_params.get('mean', 0)
         stddev = dist_params.get('stddev', 1)
         #while True:
