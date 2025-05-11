@@ -1,0 +1,6 @@
+      Arithmetic (+, -, *, /, %, **, //)
+      Logical (and, or, not)
+      Comparison (==, !=, >, <, >=, <=)
+      Assignment (=, +=, -=, etc.)
+      Membership (in, not in)
+      Identity (is, is not)
