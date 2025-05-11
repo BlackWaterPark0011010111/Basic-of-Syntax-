@@ -26,7 +26,7 @@ def calculate_stats(*numbers, operation='avg', **options):
     
     if operation == 'avg':
         result = sum(processed_numbers) / len(processed_numbers)
-        #через math.fsum:
+        #через math.fsum: with math.fsum
         # result = math.fsum(processed_numbers) / len(processed_numbers)
     elif operation == 'sum':
         result = sum(processed_numbers)
@@ -62,8 +62,8 @@ def generate_random_values(*, count=1, **dist_params):
     if dist_type == 'uniform':
         low = dist_params.get('low', 0)
         high = dist_params.get('high', 1)
-        # if low == high:
-        #     return [low] * count
+        #if low == high:
+        #return [low] * count
         return [random.uniform(low, high) for _ in range(count)]
     elif dist_type == 'normal':
         mean = dist_params.get('mean', 0)
