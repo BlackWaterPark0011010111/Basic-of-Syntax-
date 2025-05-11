@@ -10,7 +10,7 @@ def main():
         print("2. SHOW ALL TASKS")
         print("3. DELETE TASK")
         print("4. EXIT")
-
+ 
         choice = input("CHOOSE U`RE ACTION: ")
 
         if choice == "1":
