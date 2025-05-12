@@ -24,7 +24,7 @@ def main():
             else:
                 print("WRONG DATE FORMAT.")
 
-        elif choice == "2":
+        elif choice == "2": 
             manager.display_tasks()
 
         elif choice == "3":
