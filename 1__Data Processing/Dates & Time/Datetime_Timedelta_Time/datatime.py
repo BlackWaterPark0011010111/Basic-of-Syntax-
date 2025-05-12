@@ -7,16 +7,16 @@ from datetime import datetime,timedelta # import timedata
 
 print(dir(datetime))
 
-#print(datetime.datetime.now())# смотрим время сдесь и сейчас let's look at the time here and now
+#print(datetime.datetime.now())#время сдесь и сейчас let's look at the time here and now
  
 
 import datetime as dt #мы меняем имя дататайп на dt  we change the name of the datatype to dt
 
 
-print(dt.datetime.now())
+print(dt.datetime.now()) 
 x = dt.datetime.now()
 
-
+ 
 x = dt.datetime(2000, 3, 4)
 print(dir(dt))
 
