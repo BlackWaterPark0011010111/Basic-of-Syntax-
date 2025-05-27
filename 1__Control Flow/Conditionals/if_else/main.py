@@ -17,3 +17,23 @@ def guess_number_game():
 
 # Тест
 guess_number_game()
+
+
+import requests
+
+def fetch_data(url):
+    try:
+        response = requests.get(url, timeout=5)
+        response.raise_for_status()
+    except requests.exceptions.RequestException as err:
+        print(f"Ошибка запроса: {err}")
+    else:
+        print("Данные успешно получены!")
+        return response.json()
+    finally:
+        print("Запрос завершен")
+
+# Тест
+data = fetch_data("https://api.example.com/data")
+if data:
+    print(f"Получено {len(data)} записей")
