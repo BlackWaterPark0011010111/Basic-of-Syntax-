@@ -66,7 +66,7 @@ def number_game():
     for try_num in range(guesses):
         guess = int(input(f"YOUR GUESS {try_num+1}: "))
         if guess == secret:
-            print("YOU GOT IT! NICE!")
+            print("YOU GOT IT")
             break
         print("WRONG!")
     else:
