@@ -37,3 +37,23 @@ def fetch_data(url):
 data = fetch_data("https://api.example.com/data")
 if data:
     print(f"Получено {len(data)} записей")
+
+
+def get_user_age():
+    while True:
+        try:
+            age = int(input("Сколько вам лет? "))
+            if age < 0:
+                raise ValueError("Возраст не может быть отрицательным")
+        except ValueError as e:
+            print(f"Ошибка: {e}. Попробуйте еще раз")
+            continue
+        else:
+            print("Возраст принят!")
+            return age
+        finally:
+            print("Спасибо за ответ!")
+
+# Тест
+user_age = get_user_age()
+print(f"Вам {user_age} лет")
