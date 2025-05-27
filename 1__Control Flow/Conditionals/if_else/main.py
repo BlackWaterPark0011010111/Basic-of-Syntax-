@@ -1,6 +1,6 @@
 import os
 
-# looking for config files in folder
+#looking for config files in folder
 def find_config_files(folder):
     for thing in os.listdir(folder):
         if thing.endswith('.config'):
@@ -14,7 +14,7 @@ find_config_files('/etc/')
 find_config_files('/temp/')
 
 
-# asking for age with checks
+#asking for age with checks
 def get_age():
     while True:
         try:
@@ -49,12 +49,12 @@ def grab_api_info(url):
     finally:
         print("DONE WITH API STUFF")
 
-stuff = grab_api_info("https://api.test.com/v1/data")
+stuff = grab_api_info("https://api.test.com/")
 if stuff:
     print(f"got {len(stuff)} things")
 
 
-# number guessing fun
+#number guessing
 from random import randint
 
 def number_game():
