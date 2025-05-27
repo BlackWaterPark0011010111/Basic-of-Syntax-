@@ -10,12 +10,10 @@ def find_config_files(folder):
     else:
         print("No configs found, creating default")
 
-# Test runs
 find_config_files('/etc/')
 find_config_files('/temp/')
-
+"""User Input Validation (with error handling)"""
 def get_valid_age():
-    """Keeps asking until valid age entered"""
     while 1:  # Infinite loop until valid
         try:
             years = int(input("Enter your age: "))
@@ -33,6 +31,25 @@ def get_valid_age():
 # Test
 age = get_valid_age()
 print(f"You're {age} years old")
+
+"""API Request Handler (with status checking)"""
+import requests
+
+def get_api_data(api_url):
+    try:
+        resp = requests.get(api_url, timeout=3)
+        resp.raise_for_status()
+    except requests.RequestException as e:
+        print(f"Request failed: {e}")
+    else:
+        print("Success! Got API data")
+        return resp.json()
+    finally:
+        print("Request completed")
+
+api_data = get_api_data("https://api.test.com/v1/data")
+if api_data:
+    print(f"Received {len(api_data)} items")
 
 from random import randint
 """Number Guessing Game (with attempt tracking)"""
