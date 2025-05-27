@@ -1,7 +1,7 @@
 import os
 
+"""Scans Directory File Search (with interrupt handling)"""
 def find_config_files(folder):
-    """Scans directory for config files"""
     for item in os.listdir(folder):
         if item.endswith('.config'):
             print(f"Config found: {item}")
