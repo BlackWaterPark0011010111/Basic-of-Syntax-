@@ -1,70 +1,54 @@
-import random
-
-def guess_number_game():
-    secret = random.randint(1, 10)
-    attempts = 3
-    
-    print("Угадай число от 1 до 10. У тебя 3 попытки!")
-    
-    for attempt in range(1, attempts+1):
-        guess = int(input(f"Попытка {attempt}: "))
-        if guess == secret:
-            print("Ты угадал! Молодец!")
-            break
-        print("Неверно!")
-    else:
-        print(f"Ты проиграл! Число было: {secret}")
-
-guess_number_game()
-
-
-import requests
-
-def fetch_data(url):
-    try:
-        response = requests.get(url, timeout=5)
-        response.raise_for_status()
-    except requests.exceptions.RequestException as err:
-        print(f"Ошибка запроса: {err}")
-    else:
-        print("Данные успешно получены!")
-        return response.json()
-    finally:
-        print("Запрос завершен")
-
-data = fetch_data("https://api.example.com/data")
-if data:
-    print(f"Получено {len(data)} записей")
-
-
-def get_user_age():
-    while True:
-        try:
-            age = int(input("Сколько вам лет? "))
-            if age < 0:
-                raise ValueError("Возраст не может быть отрицательным")
-        except ValueError as e:
-            print(f"Ошибка: {e}. Попробуйте еще раз")
-            continue
-        else:
-            print("Возраст принят!")
-            return age
-        finally:
-            print("Спасибо за ответ!")
-
-user_age = get_user_age()
-print(f"Вам {user_age} лет")
-
 import os
 
-def find_config_file(dir_path):
-    for filename in os.listdir(dir_path):
-        if filename.endswith('.cfg'):
-            print(f"Нашел конфиг: {filename}")
+def find_config_files(folder):
+    """Scans directory for config files"""
+    for item in os.listdir(folder):
+        if item.endswith('.config'):
+            print(f"Config found: {item}")
             break
-        print(f"Проверяю {filename}...")
+        print(f"Checking {item}...")
     else:
-        print("Ни одного конфига не найдено, будет создан новый")
+        print("No configs found, creating default")
 
-find_config_file('/etc/')
-find_config_file('/tmp/')
+# Test runs
+find_config_files('/etc/')
+find_config_files('/temp/')
+
+def get_valid_age():
+    """Keeps asking until valid age entered"""
+    while 1:  # Infinite loop until valid
+        try:
+            years = int(input("Enter your age: "))
+            if years < 0:
+                raise ValueError("Age can't be negative!")
+        except ValueError as error:
+            print(f"Invalid: {error}. Try again")
+            continue
+        else:
+            print("Age accepted!")
+            return years
+        finally:
+            print("Thanks for responding!")
+
+# Test
+age = get_valid_age()
+print(f"You're {age} years old")
+
+from random import randint
+"""Number Guessing Game (with attempt tracking)"""
+def play_guess_game():
+    secret_num = randint(1, 10)
+    tries = 3
+    
+    print("Guess number (1-10). You get 3 tries!")
+    
+    for attempt in range(tries):
+        guess = int(input(f"Attempt {attempt+1}: "))
+        if guess == secret_num:
+            print("You won! Perfect!")
+            break
+        print("Wrong guess!")
+    else:
+        print(f"Game over! Number was: {secret_num}")
+
+play_guess_game()
