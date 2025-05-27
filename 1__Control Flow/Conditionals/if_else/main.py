@@ -15,7 +15,6 @@ def guess_number_game():
     else:
         print(f"Ты проиграл! Число было: {secret}")
 
-# Тест
 guess_number_game()
 
 
@@ -33,7 +32,6 @@ def fetch_data(url):
     finally:
         print("Запрос завершен")
 
-# Тест
 data = fetch_data("https://api.example.com/data")
 if data:
     print(f"Получено {len(data)} записей")
@@ -54,6 +52,19 @@ def get_user_age():
         finally:
             print("Спасибо за ответ!")
 
-# Тест
 user_age = get_user_age()
 print(f"Вам {user_age} лет")
+
+import os
+
+def find_config_file(dir_path):
+    for filename in os.listdir(dir_path):
+        if filename.endswith('.cfg'):
+            print(f"Нашел конфиг: {filename}")
+            break
+        print(f"Проверяю {filename}...")
+    else:
+        print("Ни одного конфига не найдено, будет создан новый")
+
+find_config_file('/etc/')
+find_config_file('/tmp/')
