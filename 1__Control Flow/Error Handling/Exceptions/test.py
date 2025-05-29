@@ -100,3 +100,54 @@ except requests.exceptions.SSLError:
     print("SSL certificate problem")
     #response = requests.get(API_URL, verify=False)
     
+    #response = requests.get(API_URL, verify="/path/to/cert.pem")
+except requests.exceptions.Timeout:
+    print("Request timed out")
+    #for _ in range(3):
+    #    try:
+    #        response = requests.get(API_URL, timeout=5)
+    #        break
+    #    except requests.exceptions.Timeout:
+    #        continue
+
+    #import aiohttp
+    #async with aiohttp.ClientSession() as session:
+    #    async with session.get(API_URL) as resp:
+    #        data = await resp.json()
+except requests.exceptions.RequestException as e:
+    print(f"Request failed: {e}")
+    #Alternative 1: Log full error details
+    #import traceback
+    #traceback.print_exc()
+
+    #send_slack_alert(f"API failed: {str(e)}")
+
+try:
+    df = pd.read_csv("big_dataset.csv")
+    processed = df.groupby("category").agg({
+        "value": ["mean", "std"]
+    })
+except pd.errors.EmptyDataError:
+    print("Empty CSV file")
+    #df = pd.DataFrame(columns=["category", "value"])
+    
+    #processed = None
+    #continue  # In a processing loop
+except KeyError as e:
+    print(f"Missing column: {e}")
+    #required_cols = ["category", "value"]
+    #if not all(col in df.columns for col in required_cols):
+    #    df = df.reindex(columns=required_cols, fill_value=0)
+    
+    #df = df[["category", "value"]] if "category" in df.columns else None
+except MemoryError:
+    print("Out of memory")
+    #chunk_iter = pd.read_csv("big_dataset.csv", chunksize=10000)
+    #results = []
+    #for chunk in chunk_iter:
+    #    results.append(chunk.groupby("category").mean())
+    #processed = pd.concat(results)
+    
+    #import dask.dataframe as dd
+    #ddf = dd.read_csv("big_dataset.csv")
+    #processed = ddf.groupby("category").mean().compute()
