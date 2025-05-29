@@ -300,4 +300,4 @@ except io.UnsupportedOperation:
 except Exception as e:
     print(f"Ошибка ввода-вывода: {e}")
 
-#content = io.StringIO("Тест").getvalue() if hasattr(buffer, 'getvalue') else None
+#content = io.StringIO("Тест").getvalue() if hasattr(buffer, 'getvalue') else None 
