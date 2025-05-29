@@ -87,3 +87,16 @@ for attempt in range(max_retries):
     #with db_connection() as conn:
     #    cursor = conn.cursor()
     #    cursor.execute("SELECT * FROM users")
+
+try:
+    response = requests.get(
+        "https://api.example.com/data",
+        timeout=(3.05, 27),  # Connect + read timeout
+        headers={"Authorization": f"Bearer {API_KEY}"}
+    )
+    response.raise_for_status()
+    data = response.json()
+except requests.exceptions.SSLError:
+    print("SSL certificate problem")
+    #response = requests.get(API_URL, verify=False)
+    
