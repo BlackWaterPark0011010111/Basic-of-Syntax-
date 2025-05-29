@@ -184,3 +184,35 @@ except ValidationError as e:
     #user_data.setdefault("username", "guest")
     #user_data["password"] = "defaultPassword123"
     #validate_user_data(user_data)
+
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+def process_item(item):
+    try:
+        return item * 2
+    except Exception as e:
+        return f"Error processing {item}: {str(e)}"
+
+items = [1, 2, "three", 4, None, 5]
+with ThreadPoolExecutor(max_workers=4) as executor:
+    futures = [executor.submit(process_item, item) for item in items]
+    results = []
+    for future in as_completed(futures):
+        try:
+            results.append(future.result())
+        except Exception as e:
+            results.append(f"Future failed: {str(e)}")
+
+    #results = list(executor.map(process_item, items))
+
+    #from concurrent.futures import ProcessPoolExecutor
+    #with ProcessPoolExecutor() as executor:
+    #    results = list(executor.map(process_item, items))
+
+    #import asyncio
+    #async def async_process():
+    #    return await asyncio.gather(
+    #        *(async_process_item(item) for item in items),
+    #        return_exceptions=True
+    #    )
+    #results = asyncio.run(async_process())
