@@ -266,3 +266,49 @@ except RuntimeError as e:
     #        super().__init__(message)
     #        self.cause = cause
     #raise ApplicationError("Config failed", e)
+
+def process_files(file_list):
+    results = []
+    for filename in file_list:
+        try:
+            with open(filename, 'r') as f:
+                try:
+                    data = json.load(f)
+                    try:
+                        processed = transform_data(data)
+                        results.append(processed)
+                    except DataTransformError as e:
+                        print(f"Transform failed for {filename}: {e}")
+                        #results.append({"file": filename, "data": data})
+                except json.JSONDecodeError:
+                    print(f"Invalid JSON in {filename}")
+                    #try:
+                    #    data = yaml.safe_load(f)
+                    #except:
+                    #    data = None
+        except IOError as e:
+            print(f"Can't process {filename}: {e}")
+            # failed_files.append(filename)
+            continue
+        except Exception as e:
+            print(f"Unexpected error with {filename}: {e}")
+            #save_error_state(filename, str(e))
+            raise  #Re-raise critical errors
+    
+    return results
+
+file_list = ["data1.json", "data2.json", "invalid.txt"]
+try:
+    output = process_files(file_list)
+except KeyboardInterrupt:
+    print("Processing interrupted by user")
+    # save_partial_results(output)
+    raise
+except Exception as e:
+    print(f"Fatal processing error: {e}")
+    #send_critical_alert(f"Processing crashed: {e}")
+else:
+    print(f"Successfully processed {len(output)} files")
+finally:
+    print("Processing complete")
+    #cleanup_temporary_files()
