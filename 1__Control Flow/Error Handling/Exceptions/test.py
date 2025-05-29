@@ -237,3 +237,32 @@ class DatabaseTransaction:
             
         self.conn.close()
         return False  #re-raise 
+
+try:
+    with DatabaseTransaction() as cursor:
+        cursor.execute("UPDATE accounts SET balance = balance - 100 WHERE id = 1")
+        cursor.execute("UPDATE accounts SET balance = balance + 100 WHERE id = 2")
+        #raise Exception("Random failure")
+except Exception as e:
+    print(f"Transaction failed: {e}")
+    #if isinstance(e, psycopg2.DatabaseError):
+    #    send_alert_to_dba(str(e))
+else:
+    print("Transaction succeeded")
+
+try:
+    try:
+        import missing_package
+    except ImportError as e:
+        raise RuntimeError("Dependency missing") from e
+except RuntimeError as e:
+    print(f"Main error: {e}")
+    print(f"Caused by: {e.__cause__}")
+    #import traceback
+    #Traceback.print_exc()
+    
+    #class ApplicationError(Exception):
+    #    def __init__(self, message, cause=None):
+    #        super().__init__(message)
+    #        self.cause = cause
+    #raise ApplicationError("Config failed", e)
