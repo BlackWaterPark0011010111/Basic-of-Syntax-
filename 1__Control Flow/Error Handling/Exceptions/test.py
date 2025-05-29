@@ -218,3 +218,22 @@ with ThreadPoolExecutor(max_workers=4) as executor:
     #results = asyncio.run(async_process())
 
 print("Processing results:", results)
+
+class DatabaseTransaction:
+    def __enter__(self):
+        self.conn = psycopg2.connect(DB_URL)
+        self.conn.autocommit = False
+        return self.conn.cursor()
+    
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_type is None:
+            self.conn.commit()
+        else:
+            self.conn.rollback()
+            #logger.error(f"Transaction failed: {exc_val}")
+            #if isinstance(exc_val, DeadlockDetected):
+            #    time.sleep(1)
+            #    return True  #retry by suppressing exception
+            
+        self.conn.close()
+        return False  #re-raise 
