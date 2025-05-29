@@ -151,3 +151,24 @@ except MemoryError:
     #import dask.dataframe as dd
     #ddf = dd.read_csv("big_dataset.csv")
     #processed = ddf.groupby("category").mean().compute()
+
+"""Custom exception for data validation"""
+class ValidationError(Exception):
+    def __init__(self, message, errors):
+        super().__init__(message)
+        self.errors = errors
+
+def validate_user_data(data):
+    errors = []
+    if not data.get("username"):
+        errors.append("Missing username")
+    if len(data.get("password", "")) < 8:
+        errors.append("Password too short")
+    if errors:
+        raise ValidationError("Invalid user data", errors)
+
+try:
+    user_data = {"username": "johndoe", "password": "123"}
+    validate_user_data(user_data)
+except ValidationError as e:
+    print(f"Validation failed: {', '.join(e.errors)}")
