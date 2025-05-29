@@ -172,3 +172,15 @@ try:
     validate_user_data(user_data)
 except ValidationError as e:
     print(f"Validation failed: {', '.join(e.errors)}")
+    #logger.error(f"Validation errors: {e.errors}")
+    #user_data["is_valid"] = False
+
+    #error_details = {
+    #    "error": str(e),
+    #    "details": e.errors,
+    #    "timestamp": datetime.now().isoformat()
+    #}
+
+    #user_data.setdefault("username", "guest")
+    #user_data["password"] = "defaultPassword123"
+    #validate_user_data(user_data)
