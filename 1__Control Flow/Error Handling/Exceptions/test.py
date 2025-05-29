@@ -216,3 +216,5 @@ with ThreadPoolExecutor(max_workers=4) as executor:
     #        return_exceptions=True
     #    )
     #results = asyncio.run(async_process())
+
+print("Processing results:", results)
