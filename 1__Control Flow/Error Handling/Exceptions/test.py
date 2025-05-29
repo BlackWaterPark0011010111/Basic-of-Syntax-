@@ -71,3 +71,19 @@ for attempt in range(max_retries):
     #    cursor.execute("SELECT * FROM users")
     #finally:
     #    conn_pool.putconn(conn)
+    
+    #from sqlalchemy import create_engine
+    #engine = create_engine(DB_URL)
+    #with engine.connect() as conn:
+    #    result = conn.execute("SELECT * FROM users")
+    #@contextmanager
+    #def db_connection():
+    #    conn = psycopg2.connect(DB_URL)
+    #    try:
+    #        yield conn
+    #    finally:
+    #        conn.close()
+    
+    #with db_connection() as conn:
+    #    cursor = conn.cursor()
+    #    cursor.execute("SELECT * FROM users")
