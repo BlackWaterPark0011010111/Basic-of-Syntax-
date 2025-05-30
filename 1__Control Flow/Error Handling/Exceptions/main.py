@@ -97,204 +97,201 @@ while True:
         print(f"Error: {e}")  
 
 
-
-
+# basic division
 try:
     print(10 / 0)
 except:
-    print("так нельзя делить!")
-    
-# if 0 != 0:
-#     print(10 / 0)
-# else:
-#     print("Ой, так нельзя делить!")
+    print("can't divide")
 
+#if 0 != 0: print(10 / 0)
+#else: print("can't divide")
+
+# file handling
 try:
-    f = open("файл.txt")
+    f = open("file.txt")
     print(f.read())
     f.close()
 except:
-    print("Файл не найден или не читается")
+    print("file error")
 
-#if os.path.exists("файл.txt"):
-#    f = open("файл.txt")
+#if os.path.exists("file.txt"):
+#    f = open("file.txt")
 #    print(f.read())
 #    f.close()
-#else:
-#    print("Файл не найден")
+#else: print("no file")
 
-user_input = "это не число"
+# number conversion
 try:
-    num = int(user_input)
-    print("Успешно:", num)
+    num = int("not a number")
+    print("success:", num)
 except ValueError:
-    print("Это не число!")
+    print("not a number")
 
-# if user_input.isdigit():
-#     num = int(user_input)
-#     print("Успешно:", num)
-# else:
-#     print("Это не число!")
+#if "not a number".isdigit(): 
+#    num = int("not a number")
+#    print("success:", num)
+#else: print("not a number")
 
-my_list = [1, 2, 3]
+# list index
+nums = [1,2,3]
 try:
-    print(my_list[5])
+    print(nums[5])
 except IndexError:
-    print("Такого индекса нет в списке")
+    print("bad index")
 
-#if len(my_list) > 5:
-#    print(my_list[5])
-#else:
-#    print("Такого индекса нет в списке")
+#if len(nums) > 5: print(nums[5])
+#else: print("bad index")
 
-user = {"name": "Иван"}
+# dict key
+user = {"name": "john"}
 try:
     print(user["age"])
 except KeyError:
-    print("Такого ключа нет")
+    print("no key")
 
-# print(user.get("age", "Такого ключа нет"))
+#print(user.get("age", "no key"))
 
+# multiple exceptions
 try:
-    num = int(input("Введите число: "))
+    num = int(input("number: "))
     print(10 / num)
 except ValueError:
-    print("Это не число!")
+    print("not a number")
 except ZeroDivisionError:
-    print("Нельзя делить на ноль!")
+    print("can't divide by zero")
 except:
-    print("Какая-то другая ошибка")
+    print("some error")
 
-#блок else
+# else/finally
 try:
     num = int("42")
 except ValueError:
-    print("Ошибка преобразования")
+    print("conversion error")
 else:
-    print("Все ок, результат:", num)
+    print("result:", num)
 finally:
-    print("Это выполнится в любом случае")
+    print("always runs")
 
-#мои исключения
-class MyError(Exception):
-    pass
+# custom exception
+class MyError(Exception): pass
 
 try:
-    raise MyError("Моя ошибка")
+    raise MyError("test")
 except MyError as e:
-    print("Поймал свою ошибку:", e)
+    print("caught:", e)
 
+# nested try
 try:
     try:
         1 / 0
     except ZeroDivisionError:
-        print("Внутренний обработчик")
-        raise  #повторный вызов исключения
+        print("inner handler")
+        raise
 except:
-    print("Внешний обработчик")
+    print("outer handler")
 
+# function example
 def divide(a, b):
     try:
         return a / b
     except ZeroDivisionError:
-        print("Деление на ноль!")
+        print("divide by zero")
         return None
     except TypeError:
-        print("Нужны числа!")
+        print("need numbers")
         return None
 
 print(divide(10, 2))
 print(divide(10, 0))
 print(divide("10", "2"))
 
-
-
-
+# file operations
 try:
     with open("test.txt", "w") as f:
-        f.write("Тест")
-    with open("test.txt", "r") as f:
+        f.write("test")
+    with open("test.txt") as f:
         print(f.read())
 except IOError:
-    print("Ошибка работы с файлом")
+    print("file error")
 finally:
     if os.path.exists("test.txt"):
         os.remove("test.txt")
 
-
+# input loop
 while True:
     try:
-        num = int(input("Введите число (0 для выхода): "))
-        if num == 0:
-            break
+        num = int(input("number (0 to quit): "))
+        if num == 0: break
         print(100 / num)
     except ValueError:
-        print("Это не число!")
+        print("not a number")
     except ZeroDivisionError:
-        print("Нельзя делить на ноль!")
+        print("can't divide by zero")
     except:
-        print("Неизвестная ошибка")
+        print("unknown error")
         raise
 
+# common exceptions
 try:
-    import SomeModule
+    import missing_module
 except ImportError:
-    print("Модуль не найден")
+    print("no module")
 
 try:
-    {}["ключ"]
+    {}["key"]
 except KeyError:
-    print("Ключ не найден")
+    print("no key")
 
 try:
-    "строка" + 42
+    "text" + 42
 except TypeError:
-    print("Несовместимые типы")
+    print("wrong types")
 
+# validation
 def check_age(age):
     if age < 0:
-        raise ValueError("Возраст не может быть отрицательным")
+        raise ValueError("age can't be negative")
     return age >= 18
 
 try:
     print(check_age(25))
     print(check_age(-5))
 except ValueError as e:
-    print("Ошибка:", e)
+    print("error:", e)
 
+# file handle
 f = None
 try:
     f = open("test.txt", "w")
-    f.write("Тест")
+    f.write("test")
 except IOError:
-    print("Ошибка записи")
+    print("write error")
 finally:
-    if f:
-        f.close()
-    print("Файл закрыт")
+    if f: f.close()
+    print("file closed")
 
-
+# alternative approaches
 if os.path.exists("file.txt"):
     with open("file.txt") as f:
         print(f.read())
 else:
-    print("Файл не найден")
+    print("no file")
 
 try:
     with open("file.txt") as f:
         print(f.read())
 except IOError:
-    print("Файл не найден или не читается")
+    print("file error")
 
-
-def get_positive_number():
+# input validation
+def get_positive():
     while True:
         try:
-            num = float(input("Введите положительное число: "))
+            num = float(input("positive number: "))
             if num <= 0:
-                raise ValueError("Число должно быть положительным")
+                raise ValueError("must be positive")
             return num
         except ValueError as e:
-            print(f"Ошибка: {e}. Попробуйте еще раз")
+            print(f"error: {e}. try again")
 
-print(get_positive_number())
+print(get_positive())
