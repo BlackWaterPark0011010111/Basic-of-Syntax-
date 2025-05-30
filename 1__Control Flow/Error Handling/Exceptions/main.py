@@ -235,3 +235,66 @@ while True:
     except:
         print("Неизвестная ошибка")
         raise
+
+try:
+    import SomeModule
+except ImportError:
+    print("Модуль не найден")
+
+try:
+    {}["ключ"]
+except KeyError:
+    print("Ключ не найден")
+
+try:
+    "строка" + 42
+except TypeError:
+    print("Несовместимые типы")
+
+def check_age(age):
+    if age < 0:
+        raise ValueError("Возраст не может быть отрицательным")
+    return age >= 18
+
+try:
+    print(check_age(25))
+    print(check_age(-5))
+except ValueError as e:
+    print("Ошибка:", e)
+
+f = None
+try:
+    f = open("test.txt", "w")
+    f.write("Тест")
+except IOError:
+    print("Ошибка записи")
+finally:
+    if f:
+        f.close()
+    print("Файл закрыт")
+
+
+if os.path.exists("file.txt"):
+    with open("file.txt") as f:
+        print(f.read())
+else:
+    print("Файл не найден")
+
+try:
+    with open("file.txt") as f:
+        print(f.read())
+except IOError:
+    print("Файл не найден или не читается")
+
+
+def get_positive_number():
+    while True:
+        try:
+            num = float(input("Введите положительное число: "))
+            if num <= 0:
+                raise ValueError("Число должно быть положительным")
+            return num
+        except ValueError as e:
+            print(f"Ошибка: {e}. Попробуйте еще раз")
+
+print(get_positive_number())
