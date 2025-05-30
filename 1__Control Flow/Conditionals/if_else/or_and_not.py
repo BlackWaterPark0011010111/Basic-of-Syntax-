@@ -1,4 +1,4 @@
- #Logical and,or,not
+ #logical and,or,not
 
 x = 9
 age = 17
