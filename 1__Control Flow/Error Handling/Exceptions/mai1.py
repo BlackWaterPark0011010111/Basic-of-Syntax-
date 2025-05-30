@@ -17,8 +17,8 @@ import re
 import zipfile
 import socket
 import subprocess
-import yaml  #альтернатива обработки конфигов
-import psycopg2  # для PostgreSQL
+import yaml  #for config alternative
+import psycopg2  #for PostgreSQL
 from pathlib import Path  
 from contextlib import contextmanager
 
@@ -29,7 +29,7 @@ try:
     response = requests.get('https://api.example.com/data', timeout=3)
     data = response.json()
 except requests.exceptions.RequestException:
-    print('api не отвечает')
+    print('API not responding')
 
 if response and response.status_code == 200:
     print(data.get('results'))
@@ -41,37 +41,38 @@ try:
         for row in reader:
             print(row['name'])
 except FileNotFoundError:
-    print('нет такого файла')
+    print('file not found')
 except KeyError:
-    print('в файле нет колонки name')
+    print('column "name" missing')
 
-#парсинг JSON
+#JSON Parsing
 json_data = '{"name": "John", "age": 30}'
 try:
     data = json.loads(json_data)
     print(data['name'])
 except json.JSONDecodeError:
-    print('битый json')
+    print('invalid JSON')
 except KeyError:
-    print('нет поля name')
+    print('missing "name" field')
 
-#с БД
+#db
 conn = None
 try:
     conn = sqlite3.connect('test.db')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM users')
 except sqlite3.Error as e:
-    print(f'ошибка базы: {e}')
+    print(f'database error: {e}')
 finally:
     if conn:
         conn.close()
 
+#threading 
 def worker():
     try:
         pass
     except Exception as e:
-        print(f'ошибка в потоке: {e}')
+        print(f'thread error: {e}')
 
 thread = threading.Thread(target=worker)
 thread.start()
@@ -80,14 +81,14 @@ try:
     img = Image.open('photo.jpg')
     img.rotate(45).save('rotated.jpg')
 except PIL.UnidentifiedImageError:
-    print('нечитаемый файл')
+    print('unreadable image file')
 except OSError:
-    print('проблема с файлом')
+    print('file operation failed')
 
 def validate_email(email):
     try:
         if '@' not in email:
-            raise ValueError('не похоже на email')
+            raise ValueError('invalid email format')
         return True
     except ValueError as e:
         print(e)
@@ -101,20 +102,23 @@ async def fetch_data():
             async with session.get(url) as resp:
                 return await resp.json()
     except aiohttp.ClientError:
-        print('сетевая ошибка')
+        print('network error')
 
 try:
     date = datetime.strptime('2023-13-01', '%Y-%m-%d')
 except ValueError:
-    print('некорректная дата')
+    print('invalid date')
+
 
 try:
     result = math.sqrt(-1)
 except ValueError:
-    print('нельзя извлечь корень')
+    print('invalid math operation')
 
+#NumPy
 try:
     arr = np.array([1, 2, 'a'])
     mean = arr.mean()
 except TypeError:
-    print('неправильные типы')
+    print('invalid array types')
+
