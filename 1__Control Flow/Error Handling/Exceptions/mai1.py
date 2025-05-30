@@ -102,3 +102,19 @@ async def fetch_data():
                 return await resp.json()
     except aiohttp.ClientError:
         print('сетевая ошибка')
+
+try:
+    date = datetime.strptime('2023-13-01', '%Y-%m-%d')
+except ValueError:
+    print('некорректная дата')
+
+try:
+    result = math.sqrt(-1)
+except ValueError:
+    print('нельзя извлечь корень')
+
+try:
+    arr = np.array([1, 2, 'a'])
+    mean = arr.mean()
+except TypeError:
+    print('неправильные типы')
