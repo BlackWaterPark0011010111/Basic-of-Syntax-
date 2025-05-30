@@ -206,3 +206,32 @@ def divide(a, b):
 print(divide(10, 2))
 print(divide(10, 0))
 print(divide("10", "2"))
+
+
+
+
+try:
+    with open("test.txt", "w") as f:
+        f.write("Тест")
+    with open("test.txt", "r") as f:
+        print(f.read())
+except IOError:
+    print("Ошибка работы с файлом")
+finally:
+    if os.path.exists("test.txt"):
+        os.remove("test.txt")
+
+
+while True:
+    try:
+        num = int(input("Введите число (0 для выхода): "))
+        if num == 0:
+            break
+        print(100 / num)
+    except ValueError:
+        print("Это не число!")
+    except ZeroDivisionError:
+        print("Нельзя делить на ноль!")
+    except:
+        print("Неизвестная ошибка")
+        raise
