@@ -12,6 +12,7 @@ from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor, as_completed
 import asyncio
 import aiohttp
+print(aiohttp.__version__)
 import traceback
 import logging
 
@@ -267,10 +268,10 @@ except Exception as e:
 else:
     print("Transaction succeeded")
 
-try:
-    try:
-        import missing_package
-    except ImportError as e:
+try:#TODO:
+    #try:  
+        #import missing_package
+    #except ImportError as e:
         raise RuntimeError("Dependency missing") from e
 except RuntimeError as e:
     print(f"Main error: {e}")
@@ -283,6 +284,18 @@ except RuntimeError as e:
     #        super().__init__(message)
     #        self.cause = cause
     #raise ApplicationError("Config failed", e)
+class DataTransformError(Exception):
+    pass
+
+def transform_data(raw_data):
+    if not raw_data:
+        raise DataTransformError("Данные пусты!")
+    
+    processed = {
+        "filename": raw_data.get("filename"),
+        "content": raw_data.get("content", "").upper()
+    }
+    return processed
 
 def process_files(file_list):
     results = []
@@ -296,21 +309,14 @@ def process_files(file_list):
                         results.append(processed)
                     except DataTransformError as e:
                         print(f"Transform failed for {filename}: {e}")
-                        #results.append({"file": filename, "data": data})
                 except json.JSONDecodeError:
                     print(f"Invalid JSON in {filename}")
-                    #try:
-                    #    data = yaml.safe_load(f)
-                    #except:
-                    #    data = None
         except IOError as e:
             print(f"Can't process {filename}: {e}")
-            # failed_files.append(filename)
             continue
         except Exception as e:
             print(f"Unexpected error with {filename}: {e}")
-            #save_error_state(filename, str(e))
-            raise  #Re-raise critical errors
+            raise
     
     return results
 
