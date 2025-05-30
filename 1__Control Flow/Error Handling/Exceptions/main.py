@@ -95,3 +95,114 @@ while True:
         print(result)
     except MathematicalError as e:
         print(f"Error: {e}")  
+
+
+
+
+try:
+    print(10 / 0)
+except:
+    print("так нельзя делить!")
+    
+# if 0 != 0:
+#     print(10 / 0)
+# else:
+#     print("Ой, так нельзя делить!")
+
+try:
+    f = open("файл.txt")
+    print(f.read())
+    f.close()
+except:
+    print("Файл не найден или не читается")
+
+#if os.path.exists("файл.txt"):
+#    f = open("файл.txt")
+#    print(f.read())
+#    f.close()
+#else:
+#    print("Файл не найден")
+
+user_input = "это не число"
+try:
+    num = int(user_input)
+    print("Успешно:", num)
+except ValueError:
+    print("Это не число!")
+
+# if user_input.isdigit():
+#     num = int(user_input)
+#     print("Успешно:", num)
+# else:
+#     print("Это не число!")
+
+my_list = [1, 2, 3]
+try:
+    print(my_list[5])
+except IndexError:
+    print("Такого индекса нет в списке")
+
+#if len(my_list) > 5:
+#    print(my_list[5])
+#else:
+#    print("Такого индекса нет в списке")
+
+user = {"name": "Иван"}
+try:
+    print(user["age"])
+except KeyError:
+    print("Такого ключа нет")
+
+# print(user.get("age", "Такого ключа нет"))
+
+try:
+    num = int(input("Введите число: "))
+    print(10 / num)
+except ValueError:
+    print("Это не число!")
+except ZeroDivisionError:
+    print("Нельзя делить на ноль!")
+except:
+    print("Какая-то другая ошибка")
+
+#блок else
+try:
+    num = int("42")
+except ValueError:
+    print("Ошибка преобразования")
+else:
+    print("Все ок, результат:", num)
+finally:
+    print("Это выполнится в любом случае")
+
+#мои исключения
+class MyError(Exception):
+    pass
+
+try:
+    raise MyError("Моя ошибка")
+except MyError as e:
+    print("Поймал свою ошибку:", e)
+
+try:
+    try:
+        1 / 0
+    except ZeroDivisionError:
+        print("Внутренний обработчик")
+        raise  #повторный вызов исключения
+except:
+    print("Внешний обработчик")
+
+def divide(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        print("Деление на ноль!")
+        return None
+    except TypeError:
+        print("Нужны числа!")
+        return None
+
+print(divide(10, 2))
+print(divide(10, 0))
+print(divide("10", "2"))
