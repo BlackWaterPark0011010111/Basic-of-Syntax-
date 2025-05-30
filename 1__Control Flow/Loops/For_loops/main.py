@@ -1,8 +1,7 @@
 print("-----------------------------------------------------------------------1-----")
 
-# multiplication table
-# Запрашиваем число у пользователя и выводим таблицу умножения от 1 до 10
-# We ask the user for a number and display the multiplication table from 1 to 10
+#Запрашиваем число у пользователя и выводим таблицу умножения от 1 до 10
+#We ask the user for a number and display the multiplication table from 1 to 10
 num = int(input("Input a number: "))
 print("\nResults of multiplication by", num, ":\n")
 
@@ -11,17 +10,15 @@ for i in range(1, 11):
 
 print("----------------------------------------------------------------------2------")
 
-# pattern with loop
-# Выводим пирамиду чисел, где каждая строка содержит повторяющееся число
-# Output a pyramid of numbers, where each line contains a repeating number
+#pattern with loop
+#Выводим пирамиду чисел, где каждая строка содержит повторяющееся число
 for i in range(1, 10):
     print(str(i) * i)
 
 print("-----------------------------------------------------------------------3-----")
 
-#  reverse word
-# Запрашиваем слово и выводим его в обратном порядке, используя цикл
-# Request a word and print it in reverse order using a loop
+# reverse word
+#Запрашиваем слово и выводим его в обратном порядке, используя цикл
 word = input("Input a word to reverse: ")
 reversed_word = ""
 
@@ -32,9 +29,8 @@ print("Reversed word:", reversed_word)
 
 print("--------------------------------------------------------------------4--------")
 
-#  upper letters
-# Меняем каждую букву 'o' на 'O' в введённой строке
-# Change each letter 'o' to 'O' in the entered string
+# upper letters
+#Меняем каждую букву 'o' на 'O' в введённой строке
 
 text = input("input a text: ")
 modified_text = ""
@@ -49,7 +45,6 @@ print(modified_text)
 
 print("-----------------------------------------------------------------------5-----")
 
-# count digits and letters
 # Считаем количество букв и цифр в введённом пользователем тексте
 # Count the number of letters and numbers in the text entered by the user
 text = input("input your characters: ")
@@ -68,7 +63,7 @@ print("number of letters: ", letters)
 print("-------------------------------------------------------------------6---------")
 #- sum of even and odd numbers separately
 # Запрашиваем у пользователя число и считаем сумму всех четных и нечетных чисел до него
-# We ask the user for a number and calculate the sum of all even and odd numbers before itb
+#We ask the user for a number and calculate the sum of all even and odd numbers before itb
 num = int(input("Enter a number: "))
 even_sum = 0
 odd_sum = 0
@@ -103,7 +98,6 @@ print("--------------------------------------------------------------------8----
 
 #  Fibonacci sequence
 # Генерируем n чисел последовательности Фибоначчи
-# Generate n numbers of the Fibonacci sequence
 n = int(input("ENTER THE NUMBER OF FIBONACCI: "))
 a,b = 0,1
 
@@ -113,7 +107,6 @@ for _ in range(n):
 print("----------------------------------------------------------------------9------")
 #pyramid pattern
 # Рисуем пирамиду звездочек заданной высоты
-# Draw a pyramid of stars of a given height
 rows = int(input("ENTER NUMBER OF ROWS FOR PYRAMID: "))
 for i in range(1, rows + 1):
     print(" "* (rows -1) + "*" *i)
@@ -122,7 +115,6 @@ print("---------------------------------------------------------------------10--
 
 #reverse a number
 # Переворачиваем число, используя цикл
-# Reverse the number using a loop
 num = int(input("ENTER A NUMBER: "))
 reversed_num = 0
 
@@ -135,7 +127,6 @@ print("--------------------------------------------------------------------11---
 
 # count vowels and consonants
 # Подсчитываем количество гласных и согласных в строке
-# Count the number of vowels and consonants in a line
 text = input("ENTER A STRING: ").lower()
 vowels = "aeiou"
 vowel_count = 0
@@ -153,7 +144,6 @@ print(f" VOWELS: {vowel_count}, CONSONANTS: {consonant_count}")
 print("---------------------------------------------------------------------12-------")
  
  #find the largest digit in a number
-# Находим самую большую цифру в числе
 # Find the largest digit in a number
 
 
@@ -165,7 +155,6 @@ print("LARGEST DIGIT: ", larg_dig)
 print("--------------------------------------------------------------------13--------")
  #  remove duplicates from a list
 # Убираем дубликаты из списка
-# Remove duplicates from the list
 number = [int(x) for x in input("ENTER NUMBERS SEPARATED BY SPACE: "). split()]
 unique_num = []
 
@@ -180,7 +169,6 @@ print("--------------------------------------------------------------------14---
 
 # check if a string is a palindrome
 # Проверяем, является ли строка палиндромом
-# Check if a string is a palindrome
 text = input("ENTER A STRING: "). lover()
 is_palidrome = True
 
@@ -196,7 +184,6 @@ print("----------------------------------------------------------------------15-
 
 # count occurrences of a character
 # Подсчитываем количество вхождений определенного символа в строке
-# Count the number of occurrences of a certain character in a string
 
 text = input("ENTER A STRING: ")
 char_count = input("ENTER THE CHARACTER TO COUNT: ")
@@ -211,8 +198,6 @@ print("------------------------------------------------------------------16-----
 
 # sum of digits in a number
 # Вычисляем сумму всех цифр в числе
-# Calculate the sum of all digits in a number
-
 num = input("Enter a number: ")
 digit_sum = sum(int(digit) for digit in num)
 
@@ -221,7 +206,7 @@ print("Sum of digits:", digit_sum)
 print("---------------------------------------------------------------------17-------")
 
 # find the first repeating element in a list
-# Находим первый повторяющийся элемент в списке
+#Находим первый повторяющийся элемент в списке
 
 numbers = [int(x) for x in input("Enter numbers separated by space: ").split()]
 seen = set()
