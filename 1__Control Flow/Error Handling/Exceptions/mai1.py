@@ -4,7 +4,7 @@ import json
 import sqlite3
 import threading
 from PIL import Image
-import aiohttp
+#import aiohttp
 from datetime import datetime
 import math
 import numpy as np
@@ -17,7 +17,7 @@ import re
 import zipfile
 import socket
 import subprocess
-import yaml  #for config alternative
+#import yaml  #for config alternative
 import psycopg2  #for PostgreSQL
 from pathlib import Path  
 from contextlib import contextmanager
@@ -79,13 +79,13 @@ def worker():
 thread = threading.Thread(target=worker)
 thread.start()
 
-try:
-    img = Image.open('photo.jpg')
-    img.rotate(45).save('rotated.jpg')
-except PIL.UnidentifiedImageError:
-    print('unreadable image file')
-except OSError:
-    print('file operation failed')
+#try:
+#    img = Image.open('photo.jpg')
+#    img.rotate(45).save('rotated.jpg')
+#except PIL.UnidentifiedImageError:
+#    print('unreadable image file')
+#except OSError:
+#    print('file operation failed')
 
 def validate_email(email):
     try:
@@ -98,13 +98,13 @@ def validate_email(email):
 
 validate_email('testexample.com')
 
-async def fetch_data():
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(url) as resp:
-                return await resp.json()
-    except aiohttp.ClientError:
-        print('network error')
+#async def fetch_data():
+#    try:
+#        async with aiohttp.ClientSession() as session:
+#            async with session.get(url) as resp:
+#                return await resp.json()
+#    except aiohttp.ClientError:
+#        print('network error')
 
 try:
     date = datetime.strptime('2023-13-01', '%Y-%m-%d')
