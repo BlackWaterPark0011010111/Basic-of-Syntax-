@@ -49,7 +49,7 @@ Name your solution file as solution_calc.py .Run the test_calc.py
 Copy test_calc.py file (provided in this repo) to the same folder
 Run the test_calc.py script."""
 
-
+import os
 class MathematicalError(Exception):
     pass
 
