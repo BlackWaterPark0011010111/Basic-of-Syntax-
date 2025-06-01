@@ -232,10 +232,10 @@ while True:
         raise
 
 # common exceptions
-try:
-    import missing_module
-except ImportError:
-    print("no module")
+#try:
+#    import missing_module
+#except ImportError:
+#    print("no module")
 
 try:
     {}["key"]
