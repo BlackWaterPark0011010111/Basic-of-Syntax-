@@ -76,7 +76,7 @@ except:
 finally:#finally выполнится всегда
 
     print("убираем за собой")
-    # f.close()  #например
+    # f.close()  
 
 try:#else если не было ошибок
 
