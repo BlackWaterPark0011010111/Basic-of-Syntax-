@@ -68,9 +68,9 @@ except json.JSONDecodeError:
 max_retries = 3
 for attempt in range(max_retries):
     try:
-        conn = psycopg2.connect(DB_URL)
-        cursor = conn.cursor()
-        cursor.execute("SELECT * FROM users")
+        #conn = psycopg2.connect(DB_URL)
+       # cursor = conn.cursor()
+        #cursor.execute("SELECT * FROM users")
         break  # Success!
     except psycopg2.OperationalError as e:
         print(f"Attempt {attempt + 1} failed: {e}")
@@ -110,7 +110,7 @@ try:
     response = requests.get(
         "https://api.example.com/data",
         timeout=(3.05, 27),  # Connect + read timeout
-        headers={"Authorization": f"Bearer {API_KEY}"}
+       # headers={"Authorization": f"Bearer {API_KEY}"}
     )
     response.raise_for_status()
     data = response.json()
@@ -239,7 +239,7 @@ print("Processing results:", results)
 
 class DatabaseTransaction:
     def __enter__(self):
-        self.conn = psycopg2.connect(DB_URL)
+       # self.conn = psycopg2.connect(DB_URL)
         self.conn.autocommit = False
         return self.conn.cursor()
     
