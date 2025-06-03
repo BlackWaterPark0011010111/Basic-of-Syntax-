@@ -7,6 +7,17 @@ except MyError as e:
 
 raise MyError("someth went wrong")
 
+class NotEnoughFundsError(Exception):
+    ...
+
+class CustomAppError(Exception):
+    def __init__(self, message):
+        print("In the Beninging We Loginging ure error:", message)
+        super().__init__(message)
+
+raise CustomAppError("Our Sys32 folder is going down")
+
+
 class Error(Exception):
     def __init__(self, age):
         self.age=age
@@ -49,4 +60,4 @@ except InvalidCredentials:
 except PermissionDenied:
     print("fix pswrd")
 except AuthError:
-    print("some authorisation error ")
+    print("some authorisation error, i dont know")
