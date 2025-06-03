@@ -15,7 +15,7 @@ class CustomAppError(Exception):
         print("In the Beninging We Loginging ure error:", message)
         super().__init__(message)
 
-raise CustomAppError("Our Sys32 folder is going down")
+raise CustomAppError("Our Sys32folder is going down")
 
 
 class Error(Exception):
