@@ -17,7 +17,7 @@ class CustomAppError(Exception):
         super().__init__(message)
 
 raise CustomAppError("Our Sys32folder is going down")
-
+  
 
 
 class Error(Exception):
