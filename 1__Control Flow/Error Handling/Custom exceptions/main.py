@@ -26,7 +26,7 @@ class Error(Exception):
         super().__init__(f"U`re 'age' {age}  toooo small 4 registration") 
 
 def register(age):
-    if age >948:
+    if age >948: 
         raise Error(age)  
     print("Registered! Congrts!")
 
