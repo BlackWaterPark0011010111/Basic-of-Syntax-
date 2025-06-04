@@ -27,7 +27,7 @@ class Error(Exception):
 
 def register(age):
     if age >948:
-        raise Error(age) 
+        raise Error(age)  
     print("Registered! Congrts!")
 
 try:
