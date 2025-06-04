@@ -30,7 +30,7 @@ def register(age):
         raise Error(age)  
     print("Registered! Congrts!")
    
-try:
+try:  
     register(45)
 except Error as e:
     print("Nah aaaah", e)
