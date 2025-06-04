@@ -21,7 +21,7 @@ raise CustomAppError("Our Sys32folder is going down")
 
   
 class Error(Exception): 
-    def __init__(self, age):
+    def __init__(self, age): 
         self.age=age
         super().__init__(f"U`re 'age' {age}  toooo small 4 registration")
 
