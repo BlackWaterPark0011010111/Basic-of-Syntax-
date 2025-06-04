@@ -29,7 +29,7 @@ def register(age):
     if age >948: 
         raise Error(age)  
     print("Registered! Congrts!")
- 
+   
 try:
     register(45)
 except Error as e:
