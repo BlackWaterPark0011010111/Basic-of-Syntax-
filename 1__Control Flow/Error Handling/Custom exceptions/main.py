@@ -10,6 +10,7 @@ raise MyError("someth went wrong")
 class NotEnoughFundsError(Exception):
     ...
 
+
 class CustomAppError(Exception):
     def __init__(self, message):
         print("In the Beninging We Loginging ure error:", message)
