@@ -32,7 +32,7 @@ def register(age):
    
 try:  
     register(45)
-except Error as e:
+except Error as e: 
     print("Nah aaaah", e)
     print("u`re age: ", e.age)
 
