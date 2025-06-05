@@ -36,7 +36,7 @@ except Error as e:
     print("Nah aaaah", e)
     print("u`re age: ", e.age)
 
-class AppError(Exception):
+class AppError(Exception): 
     pass
 
 class AuthError(AppError):
