@@ -61,6 +61,6 @@ except InvalidCredentials:
     print("fix he name")
 except PermissionDenied:
     print("fix pswrd")
-except AuthError:
+except AuthError: 
     print("some authorisation error, i dont know")
      
