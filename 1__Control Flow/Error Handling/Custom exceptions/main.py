@@ -55,11 +55,3 @@ def login(username, password):
         raise PermissionDenied("Seriously??")
     print("Okay")
 
-try:
-    login("uuummmmm", "wrong")
-except InvalidCredentials:
-    print("fix he name")
-except PermissionDenied:
-    print("fix pswrd")
-except AuthError:
-    print("some authorisation error, i dont know")
