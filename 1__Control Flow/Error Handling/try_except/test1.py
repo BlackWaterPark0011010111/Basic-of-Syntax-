@@ -86,9 +86,9 @@ print("=========================logging============")
 logging.basicConfig(filename='errors.log')
 #def risky_operation():#функция, которая может сломаться
 #    num = random.randint(0, 2)
-#    if num == 0:
+#    if num== 0:
 #        1/0  
-#    elif num == 1:
+#    elif num== 1:
 #        int("abc")  
 #    else:
 #        raise RuntimeError("случайная ошибка")
@@ -98,7 +98,7 @@ logging.basicConfig(filename='errors.log')
 try:
    pass # risk_operation()
 except Exception as e:#ZeroDivisionError:
-#    print("На ноль делить нельзя!")
+#    print("no zero division!")
 #except ValueError:
 #    print("this is not a number")
 #except Exception as e:  
@@ -106,6 +106,7 @@ except Exception as e:#ZeroDivisionError:
     logging.error(f"error: {e}")
     print("check errors.log")
     
+
 class User:
     def __init__(self, name,age):
         if not isinstance(name,str):
