@@ -84,11 +84,26 @@ except:
 print("=========================logging============")
 
 logging.basicConfig(filename='errors.log')
+#def risky_operation():#функция, которая может сломаться
+#    num = random.randint(0, 2)
+#    if num == 0:
+#        1/0  
+#    elif num == 1:
+#        int("abc")  
+#    else:
+#        raise RuntimeError("случайная ошибка")
+
+
 
 try:
-    risk_operation()
-except Exception as e:
-    logging.error(f"error: "{e})
+   pass # risk_operation()
+except Exception as e:#ZeroDivisionError:
+#    print("На ноль делить нельзя!")
+#except ValueError:
+#    print("this is not a number")
+#except Exception as e:  
+#    print(f"unknown error: {e}")
+    logging.error(f"error: {e}")
     print("check errors.log")
     
 class User:
@@ -103,4 +118,3 @@ try:
     user=User(123, -6)
 except ValueError as e:
     print(f"wrong data: {e}")
-    
