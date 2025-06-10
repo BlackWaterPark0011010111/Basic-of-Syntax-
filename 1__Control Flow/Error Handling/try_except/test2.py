@@ -1,3 +1,43 @@
+from datetime import datetime
+class HungryCatError(Exception):
+    def __init__(self, food, attempts=0):
+        self.food = food
+        self.attempts = attempts
+        super().__init__(f"Кот отказался есть {food} {attempts} раз!")
+    
+    def try_again(self):
+        self.attempts += 1
+        return self.attempts < 3  #3 попытки
+
+cat_food = "овощи"
+error = HungryCatError(cat_food)
+
+while error.try_again():
+    print(f"накормить кота {cat_food}...")
+    # raise error  
+print("Кот голодный, нужна рыба!")
+
+class CryptoWalletError(Exception):
+    pass
+
+class NotEnoughCryptoError(CryptoWalletError):
+    def __init__(self, currency, balance):
+        self.currency = currency
+        self.balance = balance
+        super().__init__(f"Не хватает {currency}. Баланс: {balance}")
+
+def make_transaction():
+    try:
+        #симуляцмя ошибки
+        raise ValueError("Неверный формат транзакции")
+    except ValueError as e:
+        raise NotEnoughCryptoError("BTC", 0.5) from e
+
+try:
+    make_transaction()
+except CryptoWalletError as e:
+    print(f"Ошибка кошелька: {e}")
+    print(f"Причина: {e.__cause__}")  #оригинальная ошибка
 
 
 class SelfHealingError(Exception):
