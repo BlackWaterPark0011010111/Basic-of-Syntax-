@@ -86,4 +86,21 @@ print("=========================logging============")
 logging.basicConfig(filename='errors.log')
 
 try:
+    risk_operation()
+except Exception as e:
+    logging.error(f"error: "{e})
+    print("check errors.log")
+    
+class User:
+    def __init__(self, name,age):
+        if not isinstance(name,str):
+            raise ValueError("Name shold be a string")
+        if age < 0:
+            raise ValueError("age cannot be negative")
+        self.name = name
+        self.age=age
+try:
+    user=User(123, -6)
+except ValueError as e:
+    print(f"wrong data: {e}")
     
