@@ -1,4 +1,24 @@
 
+
+class SelfHealingError(Exception):
+    def __init__(self, problem):
+        self.problem = problem
+        self.solution = None
+        super().__init__(problem)
+    
+    def fix(self):
+        if "база данных" in self.problem:
+            self.solution = "Перезагрузи PostgreS"
+            return True
+        return False
+
+error = SelfHealingError("Не могу подключиться к базе данных")
+if error.fix():
+    print(f"автофикс: {error.solution}")
+else:
+    print("не могу починить")
+
+
 class ZombieError(Exception):#жизни
     def __init__(self):
         self.lives = 3
