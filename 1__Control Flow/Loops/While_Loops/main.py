@@ -1,3 +1,6 @@
+import requests
+import time
+import random
 count = 0
 while count < 5:
     print(f"Это строка №{count+1}")
@@ -25,3 +28,66 @@ while choice != "4":
         print("сегодня 2025 год")
     elif choice == "3":
         print("программист на рыбалке... while True: try_to_catch()")
+
+
+
+
+
+
+file = open("test.txt", "w")# файлы
+lines_written = 0
+while lines_written < 10:
+    file.write(f"строка {lines_written}\n")
+    lines_written += 1
+    print(f"записано строк: {lines_written}")
+file.close()
+
+
+
+
+
+#Угадай число
+number = random.randint(1, 100)
+guess = 0
+attempts = 0
+while guess != number:
+    guess = int(input("Угадай число (1-100): "))
+    attempts += 1
+    if guess < number:
+        print("Больше!")
+    elif guess > number:
+        print("Меньше!")
+print(f"Победа! Попыток: {attempts}")
+
+
+
+
+# Чтение с условием
+total = 0
+with open("data.txt") as f:
+    while (line := f.readline()) and total < 1000:  #моржовый оператор
+        total += int(line.strip())
+        print(f"Текущая сумма: {total}")
+
+
+
+
+
+
+timeout = 10  # секунд
+start_time = time.time()
+success = False
+while not success and time.time() - start_time < timeout:
+    print("пытаюсь подключиться ")
+    time.sleep(1)
+    if random.random() > 0.7:  # 30% успеха
+        success = True
+        print("подключено!")
+else:
+    if not success:
+        print("время вышло!")
+
+#API с пагинацией
+page = 1
+results = []
+
