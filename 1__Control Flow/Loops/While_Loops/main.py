@@ -91,3 +91,26 @@ else:
 page = 1
 results = []
 
+
+while True:
+    response = requests.get(f"https://api.example.com/data?page={page}")
+    
+    data = response.json()
+    if not data["results"]:
+        break
+
+    results.extend(data["results"])
+    
+    page += 1
+    print(f"Загружено страниц: {page}")
+
+#мини-интерпретатор
+variables = {}
+print("Мини-калькулятор (для выхода введите 'exit')")
+
+while True:
+    cmd = input(">>> ").strip()
+
+    if cmd.lower() == "exit":
+        break
+    
