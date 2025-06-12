@@ -114,3 +114,13 @@ while True:
     if cmd.lower() == "exit":
         break
     
+    try:
+        if "=" in cmd: 
+            var, expr = cmd.split("=", 1)
+            variables[var.strip()] = eval(expr.strip(), {}, variables)
+
+        else:  #вычисление
+            print(eval(cmd, {}, variables))
+    except Exception as e:
+
+        print(f"Ошибка: {e}")
