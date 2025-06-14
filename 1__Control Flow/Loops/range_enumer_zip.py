@@ -52,3 +52,22 @@ for idx, price in enumerate(data['prices']):
     if price < 40000:
         continue
     print(f"Expensive car: {data['cars'][idx]} at ${price}")
+    
+    # data['prices'][idx] *= 1.2  # налог на роскошь!
+
+# sorted_cars = sorted(zip(data['prices'], data['cars']))
+# for price, car in sorted_cars:
+#     print(f"{car}: ${price}")
+
+# sorted_by_price = sorted(data['cars'], key=lambda x: data['prices'][data['cars'].index(x)])
+# print(sorted_by_price)
+
+def get_price(car):
+    return data['prices'][data['cars'].index(car)]
+
+# print(sorted(data['cars'], key=get_price))
+
+# for i, car in enumerate(data['cars']):
+#     for j in range(i):
+#         print(f"Comparing {car} with {data['cars'][j]}")
+#         # print(f"Price difference: {data['prices'][i] - data['prices'][j]}")
