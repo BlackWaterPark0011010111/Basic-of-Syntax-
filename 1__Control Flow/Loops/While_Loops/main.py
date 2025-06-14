@@ -67,6 +67,7 @@ total = 0
 with open("data.txt") as f:
     while (line := f.readline()) and total < 1000:  #моржовый оператор
         total += int(line.strip())
+        
         print(f"Текущая сумма: {total}")
 
 
