@@ -23,3 +23,10 @@ for pos, (car, price) in enumerate(zip(data['cars'], data['prices'])):
     print(f"Pos {pos}: {car} - {price}")
     # if pos == 1: print("Second element!")
     # data['prices'][pos] = price * 0.9  # скидка 10%
+
+car_features = {
+    "BMW": ["sport", "red"],
+    "Volvo": ["family", "blue"],
+    "Ford": ["truck", "black"],
+    "Mercedes": ["luxury", "silver"]
+}
