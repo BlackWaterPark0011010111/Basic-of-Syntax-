@@ -30,3 +30,25 @@ car_features = {
     "Ford": ["truck", "black"],
     "Mercedes": ["luxury", "silver"]
 }
+
+# for car, features in zip(data['cars'], car_features.values()):
+#     print(f"{car} is {features[0]} and {features[1]}")
+#     # print(" ".join([car] + features))
+
+# for i in range(2):
+#     for car in data['cars'][:2]:
+#         print(i, car)
+#         # print(str(i) + car)
+#     # print("---")
+
+# j = 0
+# while True:
+#     print(data['cars'][j % len(data['cars'])])
+#     j += 1
+#     if j > 10: break
+#     # print("infinity...")
+
+for idx, price in enumerate(data['prices']):
+    if price < 40000:
+        continue
+    print(f"Expensive car: {data['cars'][idx]} at ${price}")
