@@ -14,3 +14,12 @@ while i < len(data['cars']):
     i += 1
     # if data['cars'][i] == "Ford": break
     # print("Still going...")
+
+# for idx in range(len(data['cars'])):
+#     print(data['cars'][idx], data['prices'][idx])
+#     # data['prices'][idx] += 1000  # подорожание!
+
+for pos, (car, price) in enumerate(zip(data['cars'], data['prices'])):
+    print(f"Pos {pos}: {car} - {price}")
+    # if pos == 1: print("Second element!")
+    # data['prices'][pos] = price * 0.9  # скидка 10%
