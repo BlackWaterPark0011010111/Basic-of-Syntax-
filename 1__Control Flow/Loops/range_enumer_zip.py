@@ -61,3 +61,13 @@ for idx, price in enumerate(data['prices']):
 
 # sorted_by_price = sorted(data['cars'], key=lambda x: data['prices'][data['cars'].index(x)])
 # print(sorted_by_price)
+
+def get_price(car):
+    return data['prices'][data['cars'].index(car)]
+
+# print(sorted(data['cars'], key=get_price))
+
+# for i, car in enumerate(data['cars']):
+#     for j in range(i):
+#         print(f"Comparing {car} with {data['cars'][j]}")
+#         # print(f"Price difference: {data['prices'][i] - data['prices'][j]}")
