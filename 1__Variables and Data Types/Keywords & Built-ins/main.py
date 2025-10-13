@@ -97,4 +97,4 @@ def change_value():
         pass
 
     print("Конец программы!")
-  
+   
