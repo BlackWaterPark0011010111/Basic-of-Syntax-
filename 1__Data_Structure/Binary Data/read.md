@@ -1,3 +1,3 @@
 
-      bytes (immutable), bytearray (mutable)
+    # bytearray  bytes (immutable), bytearray (mutable)
       memoryview
